@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_action_action_search"
+        android:orderInCategory="100"
+        android:title="@string/abc_search_hint"
+        app:showAsAction="always" />
+
+
+
+
+
+
+
+
+    <item
+        android:icon="@drawable/icon_cart_white"
+        android:id="@+id/testAction"
+        android:title=""
+        android:orderInCategory="1"
+        app:showAsAction="always" />
+
+
+
+
+
+
+
+
+</menu>
+
+
+

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:background="@drawable/poop_up_traslucid_style"
+    android:id="@+id/linear">
+
+
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+
+        <LinearLayout
+            android:gravity="left"
+            android:layout_weight="7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:gravity="left"
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+
+
+
+
+
+        <LinearLayout
+            android:gravity="right"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:gravity="right"
+                android:layout_margin="10dip"
+                android:background="@drawable/icon_close_red"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:id="@+id/closePopupBtn"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/fb"
+            android:layout_marginTop="4dp"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp"/>
+
+
+
+
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="50dp"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <!--
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+-->
+
+
+
+    <LinearLayout
+        android:id="@+id/vista_login"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+
+                <TextView
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:text="Ingreso Con Email"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:hint="Email"
+                            android:id="@+id/email_edittext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"/>
+
+
+                        <EditText
+                            android:hint="Password"
+                            android:id="@+id/password_edittext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"/>
+
+
+                        <Button
+                            android:textColor="@color/theme_background"
+                            android:background="@drawable/style_button_base"
+                            android:text="Ingresar Ahora"
+                            android:id="@+id/send_login"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                        <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+                            android:id="@+id/response_login_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+
+                        <Button
+
+                            android:text="Crear Cuenta"
+                            android:id="@+id/crear_cuenta"
+                            android:layout_width="0dp"
+                            android:layout_weight="5"
+                            android:layout_height="wrap_content" />
+
+
+
+                        <Button
+                            android:text="Olvide Password"
+                            android:id="@+id/olvide_pass"
+                            android:layout_width="0dp"
+                            android:layout_weight="5"
+                            android:layout_height="wrap_content" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+            </LinearLayout>
+
+<!--
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+/*VISTA LOGIN*/
+-->
+
+
+
+    <!--
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+-->
+
+
+    <LinearLayout
+        android:id="@+id/vista_password_back"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:text="Ingresa Tu Email y en breve estaremos enviando las instrucciones para restaurar Tu Password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:hint="Email"
+            android:id="@+id/email_send_recuperar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+
+        <Button
+            android:textColor="@color/theme_background"
+            android:background="@drawable/style_button_base"
+            android:text="Recuperar Password"
+            android:id="@+id/send_recuperar_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+
+        <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+            android:id="@+id/response_service"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+        <Button
+
+            android:layout_marginTop="30dp"
+            android:text="Regresar a Login"
+            android:id="@+id/regresar_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+
+    </LinearLayout>
+
+
+
+<!--
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+VISTA PASSWORD_BACK
+-->
+
+
+
+
+    <!--
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    VISTA CREAR CUENTA
+    -->
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/vista_crear_cuenta"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:text="Crear Cuenta Nueva. Ingresa Tus Datos"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:hint="Email"
+                android:id="@+id/email_nueva_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
+
+
+            <EditText
+                android:hint="Nombre Completo"
+                android:id="@+id/nombre_nueva_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <EditText
+                android:hint="Password"
+                android:id="@+id/password_nueva_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
+
+
+            <Button
+                android:textColor="@color/theme_background"
+                android:background="@drawable/style_button_base"
+                android:text="Registrar Ahora"
+                android:id="@+id/send_nueva_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/response_create_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:text="Regresar a Login"
+                android:id="@+id/regresar_login_nueva_cuenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+    <!--
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+   VISTA CREAR CUENTA
+
+   -->
+
+</LinearLayout>

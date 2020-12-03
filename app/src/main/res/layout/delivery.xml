@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cordinado_general"
+    >
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize" />
+
+
+
+
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+    <ScrollView
+        android:id="@+id/content"
+        android:layout_marginTop="60dip"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+
+            <TextView
+
+                android:textColor="@color/colorAccent"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:text="Llena el Formulario"
+                android:layout_marginTop="10dip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/nombre_completo"
+                            android:hint="Nombre Comleto"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/email"
+                            android:inputType="textEmailAddress"
+                            android:hint="Email"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/calle"
+                            android:hint="Calle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/numero"
+                            android:hint="Número Ext - Int"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/colonia"
+                            android:hint="Colonia"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/municipio"
+                            android:hint="Municipio"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <Spinner
+                            style="@style/Widget.AppCompat.Spinner.Underlined"
+                            android:layout_weight="5"
+                            android:id="@+id/estado"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                        </Spinner>
+
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/cp"
+                            android:inputType="number"
+                            android:hint="Código Postal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/telefono"
+                            android:hint="Número Telefónico"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="5"
+                            android:id="@+id/referencias"
+                            android:hint="Referencias Visuales"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+
+
+
+            <TextView
+
+                android:textColor="@color/colorAccent"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:text="Selecciona Mètodo de Pago"
+                android:layout_marginTop="20dip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+
+
+
+
+            <RadioGroup
+
+                android:id="@+id/radios_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+
+                                <RadioButton
+                                    android:textSize="8dp"
+                                    android:text="OXXO"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:checked="true"
+                                    android:id="@+id/oxxo"
+                                    android:layout_weight="5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/oxxo"
+                                    />
+
+
+
+
+                                <RadioButton
+                                    android:textSize="8dp"
+                                    android:text="T.Debito"
+                                    android:onClick="onRadioButtonClicked"
+                                    android:id="@+id/tdebito"
+                                    android:layout_weight="5"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/debit"
+                                    />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <RadioButton
+
+                                android:textSize="8dp"
+                                android:text="T.Credito"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/tcredito"
+                                android:layout_weight="5"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/credit"
+                               />
+
+
+
+
+                            <RadioButton
+                                android:textSize="8dp"
+                                android:text="Extra"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/extra"
+                                android:layout_weight="5"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/extra"
+                                />
+
+
+
+                        </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RadioButton
+
+                        android:textSize="8dp"
+                        android:text="Telecom"
+                        android:onClick="onRadioButtonClicked"
+                        android:id="@+id/telecom"
+                        android:layout_weight="5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/telecom"
+                        />
+
+
+
+
+                    <RadioButton
+                        android:textSize="8dp"
+                        android:text="Seven Eleven"
+                        android:onClick="onRadioButtonClicked"
+                        android:id="@+id/seven_eleven"
+                        android:layout_weight="5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/seven_eleven"
+                        />
+
+
+
+                </LinearLayout>
+
+
+
+
+
+            </RadioGroup>
+
+
+
+
+            <TextView
+
+                android:textColor="@color/colorAccent"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:text="Generales"
+                android:layout_marginTop="20dip"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+
+            <LinearLayout
+                android:paddingBottom="80dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+
+             <CheckBox
+                android:id="@+id/monedero_electronico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+
+            <CheckBox
+                android:id="@+id/crear_cuenta_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="¿Deseas crear Tu cuenta con estos datos?" />
+
+
+
+            <CheckBox
+                android:id="@+id/terminos_condiciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Acepto Terminos, Condiciones y Garantías" />
+
+
+
+
+                <CheckBox
+                    android:id="@+id/seguro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Seguro Viajero $16.00" />
+
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+    <ScrollView
+        android:paddingBottom="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:id="@+id/result"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ScrollView>
+
+
+
+
+
+
+
+
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <Button
+            android:layout_margin="13dp"
+            android:id="@+id/procesar_pedido"
+            android:textColor="@color/theme_background"
+            android:background="@drawable/style_button_base"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Procesar Pedido"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

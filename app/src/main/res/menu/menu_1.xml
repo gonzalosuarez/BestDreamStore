@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/nuevas_llegadas"
+                android:icon="@drawable/ic_done_ok"
+                android:title="Nuevas Llegadas" />
+
+        </menu>
+    </item>
+
+
+
+
+    <item android:title="Nuestras Marcas">
+        <menu>
+            <item
+                android:id="@+id/nav_bissu"
+                android:icon="@drawable/ic_select"
+                android:title="Bissu" />
+
+            <item
+                android:id="@+id/nav_beauty_creations"
+                android:icon="@drawable/ic_select"
+                android:title="Beauty Creations" />
+
+
+            <item
+                android:id="@+id/nav_pink_up"
+                android:icon="@drawable/ic_select"
+                android:title="Pink Up" />
+
+
+
+            <item
+                android:id="@+id/nav_prosa"
+                android:icon="@drawable/ic_select"
+                android:title="Prosa" />
+
+
+            <item
+                android:id="@+id/nav_kjstudio"
+                android:icon="@drawable/ic_select"
+                android:title="KJ Studio" />
+
+
+            <item
+                android:id="@+id/nav_mc_cosmetics"
+                android:icon="@drawable/ic_select"
+                android:title="MC Cosmetics" />
+
+
+
+
+            <item
+                android:id="@+id/nav_rude"
+                android:icon="@drawable/ic_select"
+                android:title="Rude" />
+
+
+            <item
+                android:id="@+id/nav_trend_beauty"
+                android:icon="@drawable/ic_select"
+                android:title="Trend Beauty" />
+
+
+
+            <item
+                android:id="@+id/nav_klean_color"
+                android:icon="@drawable/ic_select"
+                android:title="Klean Color" />
+
+            <item
+                android:id="@+id/nav_profusion"
+                android:icon="@drawable/ic_select"
+                android:title="Profusion" />
+
+
+            <item
+                android:id="@+id/nav_perplex_cosmetics"
+                android:icon="@drawable/ic_select"
+                android:title="PerPlex Cosmetics" />
+
+
+
+        </menu>
+    </item>
+
+
+
+
+    <item android:title="Nuestros Productos">
+        <menu>
+            <item
+                android:id="@+id/nav_labios"
+                android:icon="@drawable/ic_select"
+                android:title="Labios" />
+            <item
+                android:id="@+id/nav_ojos"
+                android:icon="@drawable/ic_select"
+                android:title="Ojos" />
+            <item
+                android:id="@+id/nav_unas"
+                android:icon="@drawable/ic_select"
+                android:title="Uñas" />
+            <item
+                android:id="@+id/nav_rostro"
+                android:icon="@drawable/ic_select"
+                android:title="Rostro" />
+        </menu>
+    </item>
+
+
+
+    <item android:title="Catálogos PDF">
+        <menu>
+            <item
+                android:id="@+id/descargar_catalogos"
+                android:icon="@drawable/ic_done_ok"
+                android:title="Descargar Catálogos PDF" />
+
+        </menu>
+    </item>
+
+
+
+
+
+
+    <item android:title="Menú General">
+        <menu>
+            <item
+                android:id="@+id/estatus_mi_pedido"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Estatus De Mi Pedido" />
+            <item
+                android:id="@+id/resenas"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Ver Reseñas" />
+
+            <item
+                android:id="@+id/terminos_condiciones"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Términos y Condiciones" />
+        </menu>
+    </item>
+
+
+
+
+</menu>

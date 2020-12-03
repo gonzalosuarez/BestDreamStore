@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#212121</color>
+    <color name="red_traslucid">#212121</color>
+    <color name="colorPrimaryDark">#99212121</color>
+    <color name="colorAccent">#212121</color>
+    <color name="search_layover_bg">#50000000</color>
+    <color name="theme_primary">#2196F3</color>
+    <color name="theme_primary_dark">#1976D2</color>
+    <color name="theme_primary_light">#BBDEFB</color>
+    <color name="traslucid_poopup">#F2FFFFFF</color>
+    <color name="theme_background">#FFFFFF</color>
+    <color name="theme_background_inverse">#212121</color>
+
+    <color name="theme_accent_1">#212121</color>
+
+    <color name="theme_primary_trans">#99212121</color>
+    <color name="rosa_claro_detalles">#fcf0f0</color>
+    <color name="theme_primary_text">#212121</color>
+    <color name="mariposa_ala_gris">#4c4c4c</color>
+    <color name="theme_primary_text_inverted">#ffffff</color>
+    <color name="theme_secondary_text_inverted">#8affffff</color>
+    <color name="theme_icons">#FFFFFF</color>
+    <color name="theme_divider">#B6B6B6</color>
+    <color name="light_gray">#efefef</color>
+</resources>

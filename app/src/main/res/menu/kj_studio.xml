@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+    <item android:title="">
+
+        <item android:title="" />
+
+
+            <item
+                android:id="@+id/regresar_2"
+                android:icon="@drawable/icon_back"
+                android:title="Regresar A Menú Principal" />
+
+
+    </item>
+
+
+
+    <item android:title="PRODUCTOS KJ STUDIO">
+        <menu>
+
+            <item
+                android:id="@+id/Mascara_de_Pestanas"
+                android:icon="@drawable/ic_select"
+                android:titleCondensed="Mascara%20de%20Pestanas"
+                android:title="Rimel / Mascara de Pestañas" />
+            <item
+                android:id="@+id/Delineador_Liquido_KJ"
+                android:icon="@drawable/ic_select"
+                android:titleCondensed="Delineador%20Liquido%20KJ"
+                android:title="Delineadores" />
+
+        </menu>
+    </item>
+
+
+
+
+
+</menu>

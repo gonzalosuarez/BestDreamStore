@@ -1,0 +1,99 @@
+<resources>
+
+
+
+
+
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/theme_accent_1</item>
+        <item name="colorAccent">@color/theme_background_inverse</item>
+    </style>
+
+
+
+    <style name="Button_Base" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/search_layover_bg</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
+
+
+    <style name="LoginButtons">
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:minHeight">60dip</item>
+        <item name="android:padding">10dip</item>
+    </style>
+
+
+
+
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/search_layover_bg</item>
+        <item name="colorAccent">@color/theme_background_inverse</item>
+    </style>
+
+
+
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MSV_ImageButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:paddingLeft">@dimen/fab_margin</item>
+        <item name="android:paddingRight">@dimen/fab_margin</item>
+    </style>
+
+
+
+    <style name="spinner_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/spinner</item>
+        <item name="android:layout_marginTop">2dp</item>
+    </style>
+
+
+
+    <style name="MaterialSearchViewStyle">
+        <!-- Background for the search bar -->
+        <item name="searchBackground">@color/theme_primary</item>
+
+        <!-- Change clear text icon -->
+        <item name="searchCloseIcon">@drawable/icon_close</item>
+
+        <!-- Change up icon -->
+        <item name="searchBackIcon">@drawable/flecha_izquierda</item>
+
+        <!-- Change icon for the suggestions -->
+        <item name="searchSuggestionIcon">@drawable/icon_close</item>
+
+        <!-- Change background for the suggestions list view -->
+        <item name="searchSuggestionBackground">@android:color/white</item>
+
+        <!-- Change text color for edit text. This will also be the color of the cursor -->
+        <item name="android:textColor">@color/theme_primary_text_inverted</item>
+
+        <!-- Change hint text color for edit text -->
+        <item name="android:textColorHint">@color/theme_secondary_text_inverted</item>
+
+        <!-- Hint for edit text -->
+        <item name="android:hint">@string/search_hint</item>
+    </style>
+
+
+
+</resources>

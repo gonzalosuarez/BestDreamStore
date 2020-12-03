@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    tools:showIn="@layout/app_bar_main"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true">
+
+
+
+
+
+    <android.support.design.widget.AppBarLayout
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+    <android.support.design.widget.CollapsingToolbarLayout
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:id="@+id/htab_collapse_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="#ffffff"
+        app:titleEnabled="false"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:background="#ffffff"
+            android:id="@+id/slider_layout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="280dp" >
+
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/viewPager_main"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                </RelativeLayout>
+
+
+
+                <LinearLayout
+                    android:background="#ffffff"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom|center"
+                    android:id="@+id/SliderDots_main"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+
+
+            <LinearLayout
+
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_height="60dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/labios"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/labios"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#EEEEEE"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/unas"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/unas"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#EEEEEE"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/eyes"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/eyes_2"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#EEEEEE"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/rostro"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/rostro_2"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#EEEEEE"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+
+
+                           <android.support.v7.widget.RecyclerView
+                            android:background="#ffffff"
+                            android:layout_marginTop="25dp"
+                            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                            android:id="@+id/recyclerview1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scrollbars="vertical"
+                            android:gravity="center"/>
+
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
+
