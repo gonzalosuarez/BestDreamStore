@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
 
 
         /*ANALITYCS GOOGLE*/
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         /*ANALITYCS GOOGLE*/
 
 
@@ -767,13 +767,32 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_kjstudio) {
 
 
-            /*
-            navigationView.getMenu().clear();
-            navigationView.inflateMenu(R.menu.kj_studio);
-            */
-
             URL_GLOBAL = "https://bestdream.store/Android/marca/KJ?";
              drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_docolor) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/Docolor?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_la_girl) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/LA%20Girl?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_la_colors) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/LA%20Colors?";
+            drawer.closeDrawer(GravityCompat.START);
             intent_search(URL_GLOBAL);
 
 

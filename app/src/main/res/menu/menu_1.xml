@@ -37,6 +37,27 @@
                 android:title="Pink Up" />
 
 
+            <item
+                android:id="@+id/nav_docolor"
+                android:icon="@drawable/ic_select"
+                android:title="Docolor" />
+
+
+
+            <item
+                android:id="@+id/nav_la_girl"
+                android:icon="@drawable/ic_select"
+                android:title="L.A. Girl" />
+
+
+            <item
+                android:id="@+id/nav_la_colors"
+                android:icon="@drawable/ic_select"
+                android:title="L.A. Colors" />
+
+
+
+
 
             <item
                 android:id="@+id/nav_prosa"
