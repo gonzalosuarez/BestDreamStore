@@ -8,8 +8,7 @@
 
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -27,13 +26,16 @@
 
 
 
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
                 <Button
                     android:layout_margin="5dp"
                     android:textColor="@color/theme_background"
-                    android:background="@drawable/style_button_base"
+                    android:background="@drawable/style_button_green"
                     android:id="@+id/login_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -46,11 +48,19 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
+    </LinearLayout>
 
 
 
 
-                <ImageView
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+                  <ImageView
                     android:id="@+id/image_ofertas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -58,6 +68,13 @@
 
 
 
+                <ImageView
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/nuevas_llegadas_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

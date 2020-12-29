@@ -351,13 +351,32 @@ public class MainActivity extends AppCompatActivity
 
 
         ImageView image_ofertas = (ImageView)header.findViewById(R.id.image_ofertas);
-        new DownloadImageTask(getApplicationContext(), image_ofertas, "https://bestdream.store/Views/Default/img/ofertas_2.png").execute();
+        new DownloadImageTask(getApplicationContext(), image_ofertas, "https://bestdream.store/Views/Default/img/oferta.png").execute();
         image_ofertas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
                 URL_GLOBAL = "https://bestdream.store/Android/ver_concidencias_details?categoria=OFERTAS_SEMANALES&";
+                drawer.closeDrawer(GravityCompat.START);
+                intent_search(URL_GLOBAL);
+
+
+
+            }
+        });
+
+
+
+
+        ImageView image_nuevas_llegadas = (ImageView)header.findViewById(R.id.nuevas_llegadas_img);
+        new DownloadImageTask(getApplicationContext(), image_nuevas_llegadas, "https://bestdream.store/Views/Default/img/nuevas_llegadas.png").execute();
+        image_nuevas_llegadas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                URL_GLOBAL = "https://bestdream.store/Android/productos_nuevos/?";
                 drawer.closeDrawer(GravityCompat.START);
                 intent_search(URL_GLOBAL);
 
@@ -690,16 +709,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-        if(id == R.id.nuevas_llegadas){
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/productos_nuevos/?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-
-        }else if (id == R.id.nav_bissu) {
+        if (id == R.id.nav_bissu) {
 
             navigationView.getMenu().clear();
             navigationView.inflateMenu(R.menu.bissu);
@@ -792,6 +802,14 @@ public class MainActivity extends AppCompatActivity
 
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/LA%20Colors?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_loli) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/LOLI?";
             drawer.closeDrawer(GravityCompat.START);
             intent_search(URL_GLOBAL);
 

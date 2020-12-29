@@ -5,16 +5,6 @@
 
 
 
-    <item android:title="">
-        <menu>
-            <item
-                android:id="@+id/nuevas_llegadas"
-                android:icon="@drawable/ic_done_ok"
-                android:title="Nuevas Llegadas" />
-
-        </menu>
-    </item>
-
 
 
 
@@ -63,6 +53,14 @@
                 android:id="@+id/nav_prosa"
                 android:icon="@drawable/ic_select"
                 android:title="Prosa" />
+
+
+
+
+            <item
+                android:id="@+id/nav_loli"
+                android:icon="@drawable/ic_select"
+                android:title="LOLI Nails" />
 
 
             <item

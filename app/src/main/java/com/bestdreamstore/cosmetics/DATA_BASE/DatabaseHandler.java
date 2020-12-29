@@ -398,7 +398,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.close();
 
-     return cursor.getCount();
+       return cursor.getCount();
 
 
 

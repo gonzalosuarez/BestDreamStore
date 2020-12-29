@@ -351,8 +351,8 @@ public class Details extends AppCompatActivity
                         tu_garantia_show.setText("¡Compra con confianza!</u><br><br>" +
                                 "Queremos que estés completamente satisfecha(o) con tu compra. Devuelve cualquier producto dentro de los primeros 15 días de la entrega si no cumple con tu satisfacción.");
                         ver_mas_detalles_show.setText(json_json.getString("descripcion"));
-                        entregas_show.setText("Entregas de 3-7 días<br>"+
-                                "Una vez acreditado tu pedido, el tiempo de entrega es de 3 - 7 días hábiles. Tenemos cobertura en Todo México.<br>El costo de envío es de $120 MXN no importa el tamaño de tu Pedido<br>");
+                        entregas_show.setText("Entregas de 3-10 días<br>"+
+                                "Una vez acreditado tu pedido, el tiempo de entrega es de 3 - 10 días hábiles. Tenemos cobertura en Todo México.<br>El costo de envío es de $149 MXN no importa el tamaño de tu Pedido<br>");
 
 
 

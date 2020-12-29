@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -766,10 +767,15 @@ public class Login extends Activity {
 
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
+                //Toast.makeText(Login.this, "EMAIL_GOOGLE:"+email_google, Toast.LENGTH_SHORT).show(); //Correcto
+
                 if (account != null) {
 
                     String personName = account.getDisplayName();
                     String email_google = account.getEmail();
+
+
+
                     login_url_redes_sociales(email_google, "https://bestdream.store/Views/Default/img/app_android/icon_google.png", personName);
 
                 }
