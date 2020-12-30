@@ -135,6 +135,7 @@ public class Login extends Activity {
 
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
+                Toast.makeText(Login.this, "GOOGLE:", Toast.LENGTH_SHORT).show();
 
 
             }
@@ -766,8 +767,7 @@ public class Login extends Activity {
         /*GOOGLE_RESULT*/
         /*GOOGLE_RESULT*/
 
-
-
+        Log.w(TAG, "GOOGLE =" + requestCode);
 
         if (requestCode == RC_SIGN_IN) {
 
