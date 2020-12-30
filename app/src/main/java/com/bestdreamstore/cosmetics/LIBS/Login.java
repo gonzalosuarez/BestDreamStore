@@ -50,6 +50,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.facebook.login.widget.ProfilePictureView.TAG;
+
 
 public class Login extends Activity {
 
@@ -119,7 +121,10 @@ public class Login extends Activity {
 
 
 
+
+
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
 
         SignInButton signInButton = findViewById(R.id.sign_in_button);
@@ -130,6 +135,7 @@ public class Login extends Activity {
 
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
+
 
             }
         });
@@ -760,21 +766,24 @@ public class Login extends Activity {
         /*GOOGLE_RESULT*/
         /*GOOGLE_RESULT*/
 
+
+
+
         if (requestCode == RC_SIGN_IN) {
 
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
+
+
             try {
 
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 
                 //Toast.makeText(Login.this, "EMAIL_GOOGLE:"+email_google, Toast.LENGTH_SHORT).show(); //Correcto
-
                 if (account != null) {
 
                     String personName = account.getDisplayName();
                     String email_google = account.getEmail();
-
-
 
                     login_url_redes_sociales(email_google, "https://bestdream.store/Views/Default/img/app_android/icon_google.png", personName);
 
@@ -782,7 +791,8 @@ public class Login extends Activity {
 
             } catch (ApiException e) {
 
-                Log.w("RESPONSE_GOOGLE_LOGIN", "Google sign in failed", e);
+                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN code=" + e.getStatusCode());
+
             }
 
         }
@@ -793,6 +803,9 @@ public class Login extends Activity {
 
 
     }
+
+
+
 
 
 

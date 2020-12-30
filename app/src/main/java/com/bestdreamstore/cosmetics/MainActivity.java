@@ -347,7 +347,7 @@ public class MainActivity extends AppCompatActivity
         View header = navigationView.getHeaderView(0);
         Button login_logout = (Button) header.findViewById(R.id.login_logout);
 
-        TextView monedero_get = (TextView)header.findViewById(R.id.monedero_get);
+        Button monedero_get = (Button)header.findViewById(R.id.monedero_get);
 
 
         ImageView image_ofertas = (ImageView)header.findViewById(R.id.image_ofertas);

@@ -42,11 +42,19 @@
 
 
 
-
-                    <TextView
+                    <Button
+                        android:layout_margin="10dp"
+                        android:textColor="@color/theme_background"
+                        android:background="@drawable/style_button_blue"
                         android:id="@+id/monedero_get"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+
+
+
+
+
+
 
     </LinearLayout>
 
@@ -62,7 +70,7 @@
 
                   <ImageView
                     android:id="@+id/image_ofertas"
-                    android:layout_width="match_parent"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content" />
 
 
@@ -71,7 +79,7 @@
                 <ImageView
                     android:layout_marginTop="15dp"
                     android:id="@+id/nuevas_llegadas_img"
-                    android:layout_width="match_parent"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content" />
 
     </LinearLayout>
