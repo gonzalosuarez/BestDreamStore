@@ -22,6 +22,12 @@
 
 
             <item
+                android:id="@+id/nav_saniye"
+                android:icon="@drawable/ic_select"
+                android:title="SANIYE" />
+
+
+            <item
                 android:id="@+id/nav_pink_up"
                 android:icon="@drawable/ic_select"
                 android:title="Pink Up" />
@@ -53,6 +59,14 @@
                 android:id="@+id/nav_prosa"
                 android:icon="@drawable/ic_select"
                 android:title="Prosa" />
+
+
+
+            <item
+                android:id="@+id/nav_gugu"
+                android:icon="@drawable/ic_select"
+                android:title="Gugu Lashes" />
+
 
 
 

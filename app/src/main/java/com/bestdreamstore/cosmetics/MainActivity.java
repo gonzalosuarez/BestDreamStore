@@ -717,7 +717,15 @@ public class MainActivity extends AppCompatActivity
             show_hide_logo_buttons_login("hidden");
 
 
-       }else if (id == R.id.nav_beauty_creations) {
+       }else if (id == R.id.nav_saniye) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/SANIYE?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_beauty_creations) {
 
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/BEAUTY%20CREATIONS?";
@@ -728,6 +736,13 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_prosa) {
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/Prosa?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_gugu) {
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/GUGU?";
             drawer.closeDrawer(GravityCompat.START);
             intent_search(URL_GLOBAL);
 

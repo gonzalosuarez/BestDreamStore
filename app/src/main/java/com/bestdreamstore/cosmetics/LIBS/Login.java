@@ -2,6 +2,8 @@ package com.bestdreamstore.cosmetics.LIBS;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -62,8 +64,10 @@ public class Login extends Activity {
     private GoogleSignInOptions  gso;
     String  email_global;
     UserFunctions userfunctions;
-
     PoopUp_General poop_up_general = new PoopUp_General(this);
+    Context context;
+
+    ProgressDialog progress;
 
 
     EditText email_nueva_cuenta, password_nueva_cuenta, nombre_nueva_cuenta; //NUEVA CUENTA
@@ -78,12 +82,13 @@ public class Login extends Activity {
 
 
 
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
-
 
 
         ImageView logo = (ImageView)findViewById(R.id.logo);
@@ -136,6 +141,9 @@ public class Login extends Activity {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
                 Toast.makeText(Login.this, "GOOGLE:", Toast.LENGTH_SHORT).show();
+
+                progress = ProgressDialog.show(Login.this, "Buscando....",
+                        "Espere un momento", true);
 
 
             }
@@ -787,11 +795,15 @@ public class Login extends Activity {
 
                     login_url_redes_sociales(email_google, "https://bestdream.store/Views/Default/img/app_android/icon_google.png", personName);
 
+                    progress.dismiss();
+
                 }
 
             } catch (ApiException e) {
 
                 Log.w(TAG, "RESPONSE_GOOGLE_LOGIN code=" + e.getStatusCode());
+                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN message=" + e.getMessage());
+
 
             }
 

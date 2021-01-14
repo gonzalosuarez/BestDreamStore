@@ -344,6 +344,10 @@ public class Searchs extends AppCompatActivity {
         Log.i("COUNTERS_OFFSET_GLOBAL", "OFFSET" + offset_global + "---");
 
 
+
+
+
+
         if(offset_global >= count_busqueda_total){
 
             GetDataAdapter2.setmarketing("te_podria_interesar");
