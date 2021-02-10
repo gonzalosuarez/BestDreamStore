@@ -2,6 +2,7 @@ package com.bestdreamstore.cosmetics;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -162,6 +163,8 @@ public class Delivery extends AppCompatActivity {
             }
 
             email.setText(email_string);
+            email.setFocusable(false);
+            email.setTextColor(Color.RED);
 
 
 

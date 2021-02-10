@@ -388,6 +388,28 @@ public class MainActivity extends AppCompatActivity
 
 
 
+
+        ImageView image_outleet = (ImageView)header.findViewById(R.id.img_outleet);
+        new DownloadImageTask(getApplicationContext(), image_outleet, "https://bestdream.store/Views/Default/img/outlet.jpg").execute();
+        image_outleet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                URL_GLOBAL = "https://bestdream.store/Android/marca/OUTLET?";
+                drawer.closeDrawer(GravityCompat.START);
+                intent_search(URL_GLOBAL);
+
+
+
+            }
+        });
+
+
+
+
+
+
         /*SI EL USUARIO ESTA LOGUEADO*/
         /*SI EL USUARIO ESTA LOGUEADO*/
         /*SI EL USUARIO ESTA LOGUEADO*/
