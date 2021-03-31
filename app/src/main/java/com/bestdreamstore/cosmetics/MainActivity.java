@@ -396,7 +396,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v) {
 
 
-                URL_GLOBAL = "https://bestdream.store/Android/marca/OUTLET?";
+                URL_GLOBAL = "https://bestdream.store/Android/marca/PREMIUM?";
                 drawer.closeDrawer(GravityCompat.START);
                 intent_search(URL_GLOBAL);
 
@@ -854,6 +854,13 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_perplex_cosmetics) {
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/PerPlex?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_ligas) {
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/BELLE%20SCOTT?";
             drawer.closeDrawer(GravityCompat.START);
             intent_search(URL_GLOBAL);
 

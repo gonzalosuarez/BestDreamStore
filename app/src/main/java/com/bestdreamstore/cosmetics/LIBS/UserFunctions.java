@@ -415,6 +415,63 @@ public class UserFunctions {
 
 
 
+    public JSONObject code_descuento_en_uso(String codigo_descuento, String email){
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("code", codigo_descuento);
+        params.put("email_cliente", email);
+
+        JSONObject json = jsonParser.makeHttpRequest("https://bestdream.store/Android/code_descuento_enuso/?code="+codigo_descuento+"&email_cliente="+email, "POST",params);
+        // RETORNO JSON
+        //Log.e("JSON----", "Es un Objeto");
+        //Log.e("FEED_MARKETING::", String.valueOf(json));
+
+        return json;
+
+
+    }
+
+
+
+
+
+    public JSONObject insert_code_descuento(String codigo_descuento, String email){
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("code", codigo_descuento);
+        params.put("email_cliente", email);
+
+        JSONObject json = jsonParser.makeHttpRequest("https://bestdream.store/Android/insert_code_descuento/?code="+codigo_descuento+"&email_cliente="+email, "POST",params);
+        // RETORNO JSON
+        //Log.e("JSON----", "Es un Objeto");
+        //Log.e("FEED_MARKETING::", String.valueOf(json));
+
+        return json;
+
+
+    }
+
+
+
+
+
+    public JSONObject ver_codigo_descuento(String codigo_descuento){
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("code", codigo_descuento);
+
+        JSONObject json = jsonParser.makeHttpRequest("https://bestdream.store/Android/code_descuento/?code="+codigo_descuento, "POST",params);
+        // RETORNO JSON
+        //Log.e("JSON----", "Es un Objeto");
+        //Log.e("FEED_MARKETING::", String.valueOf(json));
+
+        return json;
+
+
+    }
+
+
+
 
     public JSONObject get_marketing_arr(){
 
@@ -487,7 +544,7 @@ public class UserFunctions {
         TOTALES.put("total", total);
         TOTALES.put("envio", envio);
         TOTALES.put("total_con_envio", total+envio);
-        TOTALES.put("code_discount", 0);
+        TOTALES.put("code_discount", descuento_code);
         TOTALES.put("activar_monedero_electronico", activ_money_elec);
         TOTALES.put("electronic_money", electronic_money);
         TOTALES.put("seguro", seguro);

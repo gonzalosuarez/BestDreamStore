@@ -251,51 +251,32 @@
 
 
 
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+
+                            <RadioButton
+
+                                android:textSize="8dp"
+                                android:text="Dep/Trans"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/banco_directo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/bancomer_icon_small"
+                                />
 
 
 
-                                <RadioButton
-                                    android:textSize="8dp"
-                                    android:text="OXXO"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:checked="true"
-                                    android:id="@+id/oxxo"
-                                    android:layout_weight="5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:drawableLeft="@drawable/oxxo"
-                                    />
+                            <RadioButton
+                                android:textSize="8dp"
+                                android:text="OXXO"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/oxxo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/oxxo"
+                                />
 
 
 
-
-                                <RadioButton
-                                    android:textSize="8dp"
-                                    android:text="T.Debito"
-                                    android:onClick="onRadioButtonClicked"
-                                    android:id="@+id/tdebito"
-                                    android:layout_weight="5"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:drawableLeft="@drawable/debit"
-                                    />
-
-
-
-                        </LinearLayout>
-
-
-
-
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
 
 
                             <RadioButton
@@ -304,11 +285,25 @@
                                 android:text="T.Credito"
                                 android:onClick="onRadioButtonClicked"
                                 android:id="@+id/tcredito"
-                                android:layout_weight="5"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:drawableLeft="@drawable/credit"
                                />
+
+
+
+
+
+                            <RadioButton
+                                android:textSize="8dp"
+                                android:text="T.Debito"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/tdebito"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/debit"
+                                />
+
 
 
 
@@ -318,56 +313,36 @@
                                 android:text="Extra"
                                 android:onClick="onRadioButtonClicked"
                                 android:id="@+id/extra"
-                                android:layout_weight="5"
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:drawableLeft="@drawable/extra"
                                 />
 
 
 
-                        </LinearLayout>
+                            <RadioButton
+
+                                android:textSize="8dp"
+                                android:text="Telecom"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/telecom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/telecom"
+                                />
 
 
 
 
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-
-                    <RadioButton
-
-                        android:textSize="8dp"
-                        android:text="Telecom"
-                        android:onClick="onRadioButtonClicked"
-                        android:id="@+id/telecom"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/telecom"
-                        />
-
-
-
-
-                    <RadioButton
-                        android:textSize="8dp"
-                        android:text="Seven Eleven"
-                        android:onClick="onRadioButtonClicked"
-                        android:id="@+id/seven_eleven"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/seven_eleven"
-                        />
-
-
-
-                </LinearLayout>
-
+                            <RadioButton
+                                android:textSize="8dp"
+                                android:text="Seven Eleven"
+                                android:onClick="onRadioButtonClicked"
+                                android:id="@+id/seven_eleven"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/seven_eleven"
+                                />
 
 
 
@@ -437,6 +412,109 @@
 
 
 
+
+
+
+        <LinearLayout
+            android:layout_marginBottom="60dp"
+            android:background="@color/amarillo_traslucid"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+
+                android:layout_marginTop="20dp"
+                android:id="@+id/image_cupon_promocional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_general_response"/>
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/cupon_promocional_linear_layout"
+                        android:gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+
+                        <EditText
+                            android:textSize="12dp"
+                            android:layout_weight="7"
+                            android:id="@+id/codigo_descuento"
+                            android:hint="Código Promocional"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                        <Button
+                            android:textSize="12dp"
+                            android:layout_weight="2"
+                            android:id="@+id/code_discount_btn"
+                            android:text="Validar"
+                            android:background="@color/theme_primary"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+
+
+                    </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:id="@+id/cupon_promocional_response"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+            <Button
+                android:layout_marginBottom="50dp"
+                android:layout_margin="13dp"
+                android:id="@+id/procesar_pedido"
+                android:textColor="@color/theme_background"
+                android:background="@drawable/style_button_base"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Procesar Pedido"/>
+
+
+
         </LinearLayout>
 
 
@@ -471,28 +549,6 @@
 
 
 
-    <LinearLayout
-
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-        <Button
-            android:layout_margin="13dp"
-            android:id="@+id/procesar_pedido"
-            android:textColor="@color/theme_background"
-            android:background="@drawable/style_button_base"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Procesar Pedido"/>
-
-
-
-    </LinearLayout>
 
 
 
