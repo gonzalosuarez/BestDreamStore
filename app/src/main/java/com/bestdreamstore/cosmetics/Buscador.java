@@ -1,9 +1,17 @@
 package com.bestdreamstore.cosmetics;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.speech.RecognizerIntent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -45,6 +53,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,12 +63,12 @@ public class Buscador extends AppCompatActivity {
 
     Toolbar mToolbar;
 
-
+    private static final int CODIGO_VOZ = 3;
     List<GetDataAdapter> GetDataAdapter1;
     RecyclerView recyclerView;
     UserFunctions userFunctions;
     EditText search;
-    ImageButton btn_search;
+    ImageView buscador_icon, voz_texto;
     LinearLayout BARRA_BUSQUEDA;
     DatabaseHandler db;
 
@@ -77,8 +86,8 @@ public class Buscador extends AppCompatActivity {
     RequestQueue rq;
     List<SliderUtils> sliderImg;
     SliderUtils sliderUtils;
-    TextView negative_result;
-
+    HTMLTextView negative_result;
+    EditText palabra_clave_edittext;
 
     boolean paginador = false;
     int FEED_SIZE_GLOBAL;
@@ -98,7 +107,8 @@ public class Buscador extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.buscador);
 
-
+        Typeface panton;
+        panton = ResourcesCompat.getFont(this, R.font.panton_font);
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar_buscador);
         setSupportActionBar(mToolbar);
@@ -111,11 +121,67 @@ public class Buscador extends AppCompatActivity {
         });
 
 
-        negative_result = (TextView)findViewById(R.id.negative_result);
+        negative_result = (HTMLTextView)findViewById(R.id.negative_result);
+        negative_result.setTypeface(panton);
+
+
+        palabra_clave_edittext = (EditText)findViewById(R.id.palabra_clave_edittext);
 
 
 
-        EditText palabra_clave_edittext = (EditText)findViewById(R.id.palabra_clave_edittext);
+
+        /*
+        buscador_icon = (ImageView)findViewById(R.id.buscador_icon);
+        buscador_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                limpiar_busqueda();
+
+                InputMethodManager imm = (InputMethodManager) getSystemService(getApplicationContext().INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
+
+                URL_GLOBAL = "https://bestdream.store/Android/like/?like="+palabra_clave_edittext.getText().toString()+"&";
+                JSON_DATA_WEB_CALL(URL_GLOBAL, 20, offset_global);
+
+
+            }
+        });
+
+
+         */
+
+
+
+        voz_texto = (ImageView)findViewById(R.id.voz_texto);
+        voz_texto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                capturarVoz();
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         palabra_clave_edittext.addTextChangedListener(new TextWatcher() {
 
             private Timer timer=new Timer();
@@ -141,10 +207,6 @@ public class Buscador extends AppCompatActivity {
                         },
                         DELAY
                 );
-
-
-
-
 
             }
 
@@ -235,7 +297,8 @@ public class Buscador extends AppCompatActivity {
 
     public void JSON_DATA_WEB_CALL(String PETICION_URL, int limit_, int offset_){
 
-        //negative_result.setText("Buscando......");
+        negative_result.setText("Buscando......");
+
 
         String URL_FINAL = "";
 
@@ -283,9 +346,6 @@ public class Buscador extends AppCompatActivity {
                             JSON_PARSE_DATA_AFTER_WEBCALL(array, cout_busqueda_total);
 
 
-
-
-
                         }catch (JSONException e){
                             e.printStackTrace();
                         }
@@ -315,7 +375,7 @@ public class Buscador extends AppCompatActivity {
 
     public void JSON_PARSE_DATA_AFTER_WEBCALL(JSONArray array, int count_busqueda_total) {
 
-
+        negative_result.setText("");
 
         Log.i("COUNTERS_COUNT_TOTAL", "count" + count_busqueda_total + "---");
         Log.i("COUNTERS_OFFSET_GLOBAL", "OFFSET" + offset_global + "---");
@@ -336,6 +396,8 @@ public class Buscador extends AppCompatActivity {
         FEED_SIZE_GLOBAL = array.length();
 
         incrementar_contador();
+
+
 
         for(int i=0;i<array.length();i++){
             // Get current json object
@@ -448,6 +510,32 @@ public class Buscador extends AppCompatActivity {
 
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        if(requestCode == CODIGO_VOZ  && resultCode == RESULT_OK && data != null){
+
+
+            ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+            String txt_fin = result.get(0);
+            palabra_clave_edittext.setText(txt_fin);
+
+            limpiar_busqueda();
+
+            URL_GLOBAL = "https://bestdream.store/Android/like/?like="+txt_fin+"&";
+            JSON_DATA_WEB_CALL(URL_GLOBAL, 20, offset_global);
+
+
+        }
+    }
+
+
+
+
+
+
+
     public void incrementar_contador(){
         Log.i("----CONTADOR:--", String.valueOf(contador));
         contador++;
@@ -479,10 +567,32 @@ public class Buscador extends AppCompatActivity {
 
 
 
-    protected void hideSoftKeyboard(EditText input) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(input.getWindowToken(), 0);
+
+    private void capturarVoz(){
+        Intent intent = new Intent(RecognizerIntent
+                .ACTION_RECOGNIZE_SPEECH);
+
+        intent.putExtra(
+                RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM
+        );
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
+                Locale.getDefault());
+
+        if (intent.resolveActivity(getPackageManager()) != null)
+        {
+            startActivityForResult(intent, CODIGO_VOZ);
+        } else
+        {
+            Log.e("ERROR","Su dispositivo no admite entrada de voz");
+        }
     }
+
+
+
+
+
+
 
 
 

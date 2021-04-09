@@ -9,6 +9,7 @@
 
 
     <android.support.design.widget.AppBarLayout
+        android:background="#BCFF5722"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
@@ -24,19 +25,50 @@
 
 
 
-            <EditText
-                android:textSize="13dp"
-                android:textColorHint="@color/colorPrimaryDark"
-                android:textColor="@color/colorPrimaryDark"
-                android:layout_marginRight="2dp"
-                android:padding="5dp"
-                android:background="@drawable/poop_up_traslucid_style"
-                android:id="@+id/palabra_clave_edittext"
-                android:hint="Palabra Clave -- ID Producto"
+            <LinearLayout
+                android:weightSum="6"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content">
 
+
+                    <EditText
+                        android:textColor="#ffffff"
+                        android:layout_marginRight="2dp"
+                        android:id="@+id/palabra_clave_edittext"
+                        android:hint="Producto"
+                        android:layout_weight="5.5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        />
+
+
+
+
+                <!--
+                <ImageView
+                    android:id="@+id/buscador_icon"
+                    android:src="@drawable/ic_action_action_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+-->
+
+
+                <ImageView
+                    android:id="@+id/voz_texto"
+                    android:gravity="right"
+                    android:src="@drawable/ic_baseline_keyboard_voice_24"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+
+            </LinearLayout>
 
 
 
@@ -61,8 +93,9 @@
 
 
 
-        <TextView
-            android:layout_gravity="center"
+        <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+            android:textColor="#FF5722"
+            android:gravity="center"
             android:id="@+id/negative_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

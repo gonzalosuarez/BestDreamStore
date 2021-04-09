@@ -204,7 +204,7 @@ public class Delivery extends AppCompatActivity {
 
                     }else{
 
-
+                        txt_general_response.setText("<span style='color:red;'>Para usar el código<br>debes loguearte previamente!</span><br><br>");
 
                     }
 

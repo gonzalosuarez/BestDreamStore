@@ -121,6 +121,12 @@
         <menu>
 
             <item
+                android:id="@+id/primer_rostro"
+                android:icon="@drawable/ic_select"
+                android:titleCondensed="primer%20rostro%20bissu"
+                android:title="Primer Para Rostro" />
+
+            <item
                 android:id="@+id/bronceador_pro"
                 android:icon="@drawable/ic_select"
                 android:titleCondensed="Bronceador%20Pro%20Para%20Rostro"

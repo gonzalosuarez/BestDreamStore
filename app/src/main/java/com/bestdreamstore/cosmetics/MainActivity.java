@@ -925,8 +925,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.estatus_mi_pedido){
 
 
+            /*
             drawer.closeDrawer(GravityCompat.START);
             intent_browser("https://bestdream.store/Index/status_order");
+            */
+
+            Intent i = new Intent(MainActivity.this, Web_View_General.class);
+            i.putExtra("que_ver", "ESTATUS_PEDIDO");
+            startActivity(i);
 
 
         } else if (id == R.id.resenas){

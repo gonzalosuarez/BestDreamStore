@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,11 +8,19 @@
     android:layout_margin="10dp">
 
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/theme_secondary_text_inverted"/>
 
 
-    <WebView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/webview"
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/contetn_relative_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
