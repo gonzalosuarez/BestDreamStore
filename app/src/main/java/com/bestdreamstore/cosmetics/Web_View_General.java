@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.bestdreamstore.cosmetics.ADAPTERS.Get_Pedidos_Adapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerView_Pedidos_Adapter;
+import com.bestdreamstore.cosmetics.LIBS.Login;
 import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
 import com.bestdreamstore.cosmetics.R;
 
@@ -53,10 +55,14 @@ public class Web_View_General extends AppCompatActivity {
     private Parcelable recyclerViewState;
     RecyclerView.Adapter recyclerViewadapter;
 
+    RecyclerView recyclerView;
+
 
     List<Get_Pedidos_Adapter> Get_Pedidos_Adapter_1;
     Get_Pedidos_Adapter Get_Pedidos_Adapter_2;
-
+    String email_string;
+    boolean pagados = false;
+    Button button_pagados;
 
 
      @Override
@@ -77,7 +83,11 @@ public class Web_View_General extends AppCompatActivity {
 
 
          mToolbar = (Toolbar) findViewById(R.id.toolbar_web_view);
-         mToolbar.setNavigationIcon(R.drawable.icon_back);
+         mToolbar.setNavigationIcon(R.drawable.icon_back_white);
+         setSupportActionBar(mToolbar);
+         getSupportActionBar().setTitle("Buscando......");
+         mToolbar.setTitleTextColor(ContextCompat.getColor(getApplicationContext(), R.color.theme_icons));
+
          mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -101,22 +111,31 @@ public class Web_View_General extends AppCompatActivity {
 
 
                      Get_Pedidos_Adapter_1 = new ArrayList<>();
-                     final RecyclerView recyclerView = new RecyclerView(this);
+                    recyclerView = new RecyclerView(this);
+
+                     email_string = userFunctions.get_user_email(getApplicationContext());
 
 
 
-                     String email_string = userFunctions.get_user_email(getApplicationContext());
 
 
-                     EditText id_pedido_edit_text = new EditText(this);
-                     id_pedido_edit_text.setLayoutParams(new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                     id_pedido_edit_text.setGravity(Gravity.CENTER);
 
 
-                     Button button_search = new Button(this);
-                     button_search.setLayoutParams(new RelativeLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                     button_search.setText("Buscar");
-                     button_search.setGravity(Gravity.CENTER);
+                     button_pagados = new Button(this);
+                     button_pagados.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                     button_pagados.setGravity(Gravity.CENTER_HORIZONTAL);
+                     button_pagados.setBackgroundColor(Color.RED);
+                     button_pagados.setTextColor(Color.parseColor("#FFFFFF"));
+                     button_pagados.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+
+                              ver_pedidos();
+
+                         }
+                     });
+
+
 
 
                      TextView sdCardInfo = new TextView(this);
@@ -125,106 +144,24 @@ public class Web_View_General extends AppCompatActivity {
 
 
 
-                     String URL_ENCODE = "https://bestdream.store/Android/ver_pedidos_email/?email="+email_string;
-
-
-                     RequestQueue requestQueue = Volley.newRequestQueue(this);
-
-                     // Initialize a new JsonObjectRequest instance
-                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                             Request.Method.GET,
-                             URL_ENCODE,
-                             null,
-                             new Response.Listener<JSONObject>() {
-                                 @Override
-                                 public void onResponse(JSONObject response) {
-
-                                     try{
-
-                                         JSONArray array = response.getJSONArray("feed");
-
-                                         Log.i("ARRAY_FINAL", "JSON" + array + "---");
-
-
-
-                                         for(int i=0;i<array.length();i++){
-                                             // Get current json object
-
-
-                                             Get_Pedidos_Adapter_2 = new Get_Pedidos_Adapter();
-
-                                             try {
-
-
-                                                 JSONObject json_base_2 = array.getJSONObject(i);
-
-                                                 String id_pedido = json_base_2.getString("id_pedido");
-
-                                                 Get_Pedidos_Adapter_2.setid_pedido(json_base_2.getString("id_pedido"));
-
-
-
-                                             } catch (JSONException e) {
-
-                                                 e.printStackTrace();
-                                             }
-
-
-
-                                             Get_Pedidos_Adapter_1.add(Get_Pedidos_Adapter_2);
-
-
-                                             recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
-                                             recyclerViewadapter = new RecyclerView_Pedidos_Adapter(Get_Pedidos_Adapter_1,  getApplicationContext());
-
-                                             recyclerView.setAdapter(recyclerViewadapter);
-
-
-
-                                         }
-
-
-
-
-
-
-
-                                     }catch (JSONException e){
-                                         e.printStackTrace();
-                                     }
-                                 }
-                             },
-                             new Response.ErrorListener(){
-                                 @Override
-                                 public void onErrorResponse(VolleyError error){
-
-
-                                 }
-                             }
-                     );
-
-                     requestQueue.add(jsonObjectRequest);
-
-
-
-
-
-
-
+                    //email_string = "p_carlos84@hotmail.com";
 
 
 
                      contetn_relative_layout.addView(sdCardInfo);
-
-                     contetn_relative_layout.addView(id_pedido_edit_text);
-                     contetn_relative_layout.addView(button_search);
+                     contetn_relative_layout.addView(button_pagados);
                      contetn_relative_layout.addView(recyclerView);
+
+
+
+
 
 
 
                      sdCardInfo.setText("Pedido creado con usuario: "+email_string);
 
 
+                     ver_pedidos();
 
 
 
@@ -234,7 +171,8 @@ public class Web_View_General extends AppCompatActivity {
 
                  }else{
 
-
+                     Intent i = new Intent(Web_View_General.this, Login.class);
+                     startActivity(i);
 
 
                  }
@@ -265,9 +203,137 @@ public class Web_View_General extends AppCompatActivity {
 
 
 
+    public void ver_pedidos(){
 
 
 
+         this.Get_Pedidos_Adapter_1.size();
+         this.Get_Pedidos_Adapter_1.clear(); ;
+
+
+        if(pagados){
+
+            pagados = false;
+            button_pagados.setText("Ver Todos");
+
+            ver_pedidos_final("pagados");
+
+
+        }else{
+
+            pagados = true;
+            button_pagados.setText("Ver Los Pagados");
+            ver_pedidos_final("no_pagados");
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+    public void ver_pedidos_final(String estatus_pedido){
+
+
+
+
+        String URL_ENCODE = "https://bestdream.store/Android/ver_pedidos_email/?email="+email_string+"&estatus_pedido="+estatus_pedido;
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        // Initialize a new JsonObjectRequest instance
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                URL_ENCODE,
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try{
+
+                            JSONArray array = response.getJSONArray("feed");
+                            String num_rows = response.getString("num_rows");
+
+                            Log.i("NUM_ROWS", " -- " + num_rows + "---");
+                            getSupportActionBar().setTitle(num_rows+" Pedidos");
+
+
+
+                            for(int i=0;i<array.length();i++){
+                                // Get current json object
+
+
+                                Get_Pedidos_Adapter_2 = new Get_Pedidos_Adapter();
+
+                                try {
+
+
+                                    JSONObject json_base_2 = array.getJSONObject(i);
+
+
+                                    Get_Pedidos_Adapter_2.setid_pedido(json_base_2.getString("id_pedido"));
+                                    Get_Pedidos_Adapter_2.setfecha_aprovacion(json_base_2.getString("fecha_aprovacion"));
+                                    Get_Pedidos_Adapter_2.setrastreo(json_base_2.getString("rastreo"));
+                                    Get_Pedidos_Adapter_2.setkey_pedido(json_base_2.getString("key_pedido"));
+                                    Get_Pedidos_Adapter_2.setestatus_pedido(json_base_2.getString("estatus_pedido"));
+
+
+
+                                } catch (JSONException e) {
+
+                                    e.printStackTrace();
+                                }
+
+
+
+                                Get_Pedidos_Adapter_1.add(Get_Pedidos_Adapter_2);
+                                recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, 1));
+                                recyclerViewadapter = new RecyclerView_Pedidos_Adapter(Get_Pedidos_Adapter_1,  getApplicationContext());
+
+                                recyclerView.setAdapter(recyclerViewadapter);
+
+
+
+                            }
+
+
+
+
+
+
+
+                        }catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+
+
+                    }
+                }
+        );
+
+        requestQueue.add(jsonObjectRequest);
+
+
+
+
+
+
+
+    }
 
 
 

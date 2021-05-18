@@ -1,7 +1,10 @@
 package com.bestdreamstore.cosmetics.CONTROLLERS;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
@@ -21,6 +25,8 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.bestdreamstore.cosmetics.ADAPTERS.Get_Cart_Adapter;
 import com.bestdreamstore.cosmetics.ADAPTERS.Get_Pedidos_Adapter;
 import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
+import com.bestdreamstore.cosmetics.Details;
+import com.bestdreamstore.cosmetics.LIBS.HTMLTextView;
 import com.bestdreamstore.cosmetics.R;
 import com.squareup.picasso.Picasso;
 import android.widget.ImageView;
@@ -72,10 +78,36 @@ public class RecyclerView_Pedidos_Adapter extends RecyclerView.Adapter<com.bestd
 
         Get_Pedidos_Adapter getDataAdapter1 =  getDataAdapter.get(position);
 
+        Viewholder.id_pedido.setText(getDataAdapter1.getid_pedido());
+        Viewholder.key_pedido.setText(getDataAdapter1.getkey_pedido());
 
-        id_pedido = getDataAdapter1.getid_pedido();
 
 
+
+
+        if(!getDataAdapter1.getestatus_pedido().equals("accredited")){
+
+            Picasso.get().load("https://bestdream.store/Views/Default/img/pago_alert.jpg").into(Viewholder.image_cupon_promocional);
+
+        }else{
+
+            Picasso.get().load("https://bestdream.store/Views/Default/img/pago_ok.png").into(Viewholder.image_cupon_promocional);
+
+        }
+
+
+
+
+
+
+
+
+
+        Viewholder.id_pedido.setText(
+                "Pedido:ID: <strong>"+getDataAdapter1.getid_pedido()+" -- "+
+                        getDataAdapter1.getfecha_aprovacion()+"</strong><br> Rastreo Fedex: "+
+                        getDataAdapter1.getrastreo()
+        );
 
 
 
@@ -96,15 +128,36 @@ public class RecyclerView_Pedidos_Adapter extends RecyclerView.Adapter<com.bestd
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView id_pedido;
+        public HTMLTextView id_pedido;
+        public ImageButton button_detalles_pedido;
+        public TextView key_pedido;
+
+        public ImageView image_cupon_promocional;
 
         public ViewHolder(final View itemView) {
 
             super(itemView);
 
 
+            image_cupon_promocional = (ImageView)itemView.findViewById(R.id.imagen_icono);
 
-            id_pedido = (TextView) itemView.findViewById(R.id.id_pedido);
+            id_pedido = (HTMLTextView) itemView.findViewById(R.id.id_pedido);
+            key_pedido = (TextView) itemView.findViewById(R.id.key_pedido);
+            button_detalles_pedido = (ImageButton) itemView.findViewById(R.id.ver_pedido);
+
+            button_detalles_pedido.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    String key_pedido_ = key_pedido.getText().toString();
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://bestdream.store/Index/details_order/"+key_pedido_));
+                    browserIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(browserIntent);
+
+
+                }
+            });
+
 
 
 

@@ -22,58 +22,63 @@
 
 
         <LinearLayout
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_weight="7">
 
 
 
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2">
-
-
-                <!--
-            <com.android.volley.toolbox.NetworkImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:id="@+id/VollyNetworkCartImageView1"
-                android:layout_gravity="left"
-                android:src="@mipmap/ic_launcher"/>
-                -->
 
 
                 <ImageView
-                    android:id="@+id/iv_cart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1.5"
-                    android:layout_gravity="left"
-                    android:src="@mipmap/ic_launcher"
+                    android:layout_margin="10dp"
+                    android:id="@+id/imagen_icono"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
                     />
 
 
 
 
-                <TextView
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="1dp"
+                <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+                    android:textSize="10dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="4"
+                    android:textColor="@color/red_traslucid"
                     android:id="@+id/id_pedido"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight=".5"/>
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
 
 
 
-            </LinearLayout>
+                <ImageButton
+                    android:src="@drawable/ic_select"
+                    android:layout_gravity="right"
+                    android:id="@+id/ver_pedido"
+                    android:layout_weight="1.5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
 
 
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/key_pedido"
+                android:textSize="1dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>

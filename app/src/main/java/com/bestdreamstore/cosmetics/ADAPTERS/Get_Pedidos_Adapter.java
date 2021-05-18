@@ -7,6 +7,7 @@ public class Get_Pedidos_Adapter {
     public String key_pedido;
     public String fecha_aprovacion;
     public String rastreo;
+    public String estatus_pedido;
 
 
 
@@ -20,6 +21,13 @@ public class Get_Pedidos_Adapter {
 
 
 
+    public String getestatus_pedido() {
+        return estatus_pedido;
+    }
+
+    public void setestatus_pedido(String estatus_pedido) {
+        this.estatus_pedido = estatus_pedido;
+    }
 
 
     public String getkey_pedido() {

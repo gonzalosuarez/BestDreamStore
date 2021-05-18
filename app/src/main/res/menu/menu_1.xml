@@ -63,6 +63,13 @@
 
 
             <item
+                android:id="@+id/nav_DUO"
+                android:icon="@drawable/ic_select"
+                android:title="DUO" />
+
+
+
+            <item
                 android:id="@+id/nav_gugu"
                 android:icon="@drawable/ic_select"
                 android:title="Gugu Lashes" />
@@ -179,7 +186,7 @@
             <item
                 android:id="@+id/estatus_mi_pedido"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Estatus De Mi Pedido" />
+                android:title="Ver Mis pedidos" />
             <item
                 android:id="@+id/resenas"
                 android:icon="@drawable/ic_menu_send"

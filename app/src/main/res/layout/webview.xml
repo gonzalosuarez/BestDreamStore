@@ -5,20 +5,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    >
 
 
     <android.support.v7.widget.Toolbar
+        
         android:id="@+id/toolbar_web_view"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:minHeight="?attr/actionBarSize"
-        android:background="@color/theme_secondary_text_inverted"/>
+        android:background="@color/colorPrimary"
+        android:layout_height="?attr/actionBarSize"/>
 
 
 
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:orientation="vertical"
         android:id="@+id/contetn_relative_layout"
         android:layout_width="match_parent"

@@ -762,6 +762,13 @@ public class MainActivity extends AppCompatActivity
             intent_search(URL_GLOBAL);
 
 
+        }else if (id == R.id.nav_DUO) {
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/DUO?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
         }else if (id == R.id.nav_gugu) {
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/GUGU?";
