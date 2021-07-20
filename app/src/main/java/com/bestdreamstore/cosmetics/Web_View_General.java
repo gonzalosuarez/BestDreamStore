@@ -153,12 +153,7 @@ public class Web_View_General extends AppCompatActivity {
                      contetn_relative_layout.addView(recyclerView);
 
 
-
-
-
-
-
-                     sdCardInfo.setText("Pedido creado con usuario: "+email_string);
+                     //sdCardInfo.setText("Pedido creado con usuario: "+email_string);
 
 
                      ver_pedidos();
