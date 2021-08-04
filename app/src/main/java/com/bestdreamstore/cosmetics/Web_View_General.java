@@ -17,9 +17,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -63,6 +65,7 @@ public class Web_View_General extends AppCompatActivity {
     String email_string;
     boolean pagados = false;
     Button button_pagados;
+    Switch switch_views;
 
 
      @Override
@@ -119,18 +122,15 @@ public class Web_View_General extends AppCompatActivity {
 
 
 
+                     switch_views = new Switch(this);
+                     switch_views.setTextOn("Pagados"); // displayed text of the Switch whenever it is in checked or on state
+                     switch_views.setTextOff("Todos");
+                     switch_views.setTextColor(Color.parseColor("#000000"));
 
+                     switch_views.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-                     button_pagados = new Button(this);
-                     button_pagados.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                     button_pagados.setGravity(Gravity.CENTER_HORIZONTAL);
-                     button_pagados.setBackgroundColor(Color.RED);
-                     button_pagados.setTextColor(Color.parseColor("#FFFFFF"));
-                     button_pagados.setOnClickListener(new View.OnClickListener() {
-                         @Override
-                         public void onClick(View view) {
-
-                              ver_pedidos();
+                             ver_pedidos();
 
                          }
                      });
@@ -149,7 +149,7 @@ public class Web_View_General extends AppCompatActivity {
 
 
                      contetn_relative_layout.addView(sdCardInfo);
-                     contetn_relative_layout.addView(button_pagados);
+                     contetn_relative_layout.addView(switch_views);
                      contetn_relative_layout.addView(recyclerView);
 
 
@@ -209,7 +209,6 @@ public class Web_View_General extends AppCompatActivity {
         if(pagados){
 
             pagados = false;
-            button_pagados.setText("Ver Todos");
 
             ver_pedidos_final("pagados");
 
@@ -217,7 +216,6 @@ public class Web_View_General extends AppCompatActivity {
         }else{
 
             pagados = true;
-            button_pagados.setText("Ver Los Pagados");
             ver_pedidos_final("no_pagados");
 
 

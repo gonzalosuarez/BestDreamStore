@@ -829,7 +829,23 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.nav_docolor) {
 
 
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Docolor?";
+            URL_GLOBAL = "https://bestdream.store/Android/marca/DOCOLOR?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_toxik) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/TOXIK?";
+            drawer.closeDrawer(GravityCompat.START);
+            intent_search(URL_GLOBAL);
+
+
+        }else if (id == R.id.nav_bausse) {
+
+
+            URL_GLOBAL = "https://bestdream.store/Android/marca/BAUSSE?";
             drawer.closeDrawer(GravityCompat.START);
             intent_search(URL_GLOBAL);
 

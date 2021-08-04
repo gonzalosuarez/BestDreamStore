@@ -13,7 +13,7 @@
             <item
                 android:id="@+id/nav_bissu"
                 android:icon="@drawable/ic_select"
-                android:title="Bissu" />
+                android:title="BISSU" />
 
             <item
                 android:id="@+id/nav_beauty_creations"
@@ -22,9 +22,15 @@
 
 
             <item
-                android:id="@+id/nav_saniye"
+                android:id="@+id/nav_bausse"
                 android:icon="@drawable/ic_select"
-                android:title="SANIYE" />
+                android:title="BAUSSE" />
+
+
+            <item
+                android:id="@+id/nav_prosa"
+                android:icon="@drawable/ic_select"
+                android:title="Prosa" />
 
 
             <item
@@ -37,6 +43,12 @@
                 android:id="@+id/nav_docolor"
                 android:icon="@drawable/ic_select"
                 android:title="Docolor" />
+
+
+            <item
+                android:id="@+id/nav_toxik"
+                android:icon="@drawable/ic_select"
+                android:title="Toxik" />
 
 
 
@@ -53,12 +65,12 @@
 
 
 
-
-
             <item
-                android:id="@+id/nav_prosa"
+                android:id="@+id/nav_saniye"
                 android:icon="@drawable/ic_select"
-                android:title="Prosa" />
+                android:title="SANIYE" />
+
+
 
 
 
