@@ -137,6 +137,19 @@
 
 
 
+
+
+
+        <activity
+            android:name=".Herramientas_Ventas"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+        </activity>
+
+
+
     <activity
         android:name=".Web_View_General"
         android:screenOrientation="portrait"

@@ -178,12 +178,17 @@
 
 
 
-    <item android:title="Catálogos PDF">
+    <item android:title="Herramientas de Ventas">
         <menu>
             <item
                 android:id="@+id/descargar_catalogos"
                 android:icon="@drawable/ic_done_ok"
                 android:title="Descargar Catálogos PDF" />
+
+            <item
+                android:id="@+id/herramientas_ventas"
+                android:icon="@drawable/ic_done_ok"
+                android:title="Mi Propia Página WEB" />
 
         </menu>
     </item>

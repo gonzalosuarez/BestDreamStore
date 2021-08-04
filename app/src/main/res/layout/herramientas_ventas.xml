@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_herramientas_ventas"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:minHeight="?attr/actionBarSize"
+            android:background="#000000"/>
+
+
+
+
+
+    <ImageView
+        android:layout_marginRight="10dp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="15dp"
+        android:id="@+id/pagina_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+
+
+
+
+
+        <LinearLayout
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <Button
+            android:paddingLeft="15dp"
+            android:textColor="@color/theme_background"
+            android:id="@+id/ver_paginas_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dip"
+            android:background="@drawable/style_button_base"
+            android:gravity="center"
+            android:text=" Ver Mis Páginas " />
+
+
+
+
+        <com.bestdreamstore.cosmetics.LIBS.HTMLTextView
+            android:layout_marginTop="20dp"
+            android:id="@+id/texto_herr_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

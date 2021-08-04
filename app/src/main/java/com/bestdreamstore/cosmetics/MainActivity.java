@@ -965,6 +965,13 @@ public class MainActivity extends AppCompatActivity
             intent_browser("https://bestdream.store/Index/resenas");
 
 
+        } else if (id == R.id.herramientas_ventas){
+
+
+            Intent i = new Intent(MainActivity.this, Herramientas_Ventas.class);
+            startActivity(i);
+
+
         } else if (id == R.id.terminos_condiciones){
 
 
