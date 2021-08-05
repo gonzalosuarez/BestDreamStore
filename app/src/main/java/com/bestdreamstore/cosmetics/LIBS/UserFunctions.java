@@ -492,6 +492,26 @@ public class UserFunctions {
 
 
 
+    public JSONObject get_pedidos_reseller(String email_user){
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("email", email_user);
+        params.put("limit", "30");
+        params.put("offset", "0");
+
+        JSONObject json = jsonParser.makeHttpRequest("https://bestdream.store/Styles_Reseller/ver_pedidos_reseller_email", "POST",params);
+        // RETORNO JSON
+        //Log.e("JSON----", "Es un Objeto");
+        //Log.e("FEED_MARKETING::", String.valueOf(json));
+
+        return json;
+
+
+    }
+
+
+
+
 
     public void alert_func(String txt, Context ctx){
 
