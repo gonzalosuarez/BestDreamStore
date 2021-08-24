@@ -13,6 +13,8 @@
 
     <string name="facebook_app_id">698535613858321</string>
     <string name="fb_login_protocol_scheme">fb698535613858321</string>
+    <string name="server_client_id">322653182630-p44l7q9aps6gikpumn8hmsm20e3r8qjh.apps.googleusercontent.com</string>
+
 
 
     <string-array name="query_suggestions">

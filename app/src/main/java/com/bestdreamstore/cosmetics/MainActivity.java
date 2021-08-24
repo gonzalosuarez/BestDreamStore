@@ -1,14 +1,18 @@
 package com.bestdreamstore.cosmetics;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -38,8 +42,10 @@ import java.util.List;
 import java.util.Random;
 
 import com.bestdreamstore.cosmetics.ADAPTERS.GetDataAdapter;
+import com.bestdreamstore.cosmetics.ADAPTERS.Get_Marca_Adapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.Cart_Controller;
 import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerViewAdapter;
+import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerViewMarcasAdapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.SliderAdapter;
 import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
 import com.bestdreamstore.cosmetics.LIBS.DownloadImageTask;
@@ -71,7 +77,8 @@ public class MainActivity extends AppCompatActivity
 
 
     List<GetDataAdapter> GetDataAdapter1;
-    RecyclerView recyclerView;
+    List<Get_Marca_Adapter> Get_Marca_Adapter1;
+    RecyclerView recyclerView, recyclerView_Marcas;
     UserFunctions userFunctions;
     EditText search;
     ImageButton btn_search;
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity
 
 
     GetDataAdapter GetDataAdapter2;
+    Get_Marca_Adapter Get_Marca_Adapter2;
 
     SliderAdapter viewPagerAdapter;
     LinearLayout sliderDotspanel, slider_layout;
@@ -107,6 +115,8 @@ public class MainActivity extends AppCompatActivity
 
     MenuItem menuItem;
     RecyclerView.Adapter recyclerViewadapter;
+    RecyclerView.Adapter recyclerViewadapter_marca;
+
     NavigationView navigationView;
     DrawerLayout drawer;
     int monedero_electronico_int = 0;
@@ -246,10 +256,18 @@ public class MainActivity extends AppCompatActivity
 
 
         GetDataAdapter1 = new ArrayList<>();
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
+        Get_Marca_Adapter1 = new ArrayList<>();
 
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview1);
         recyclerView.setHasFixedSize(true);
-        //recyclerView.setLayoutManager(recyclerViewlayoutManager);
+
+
+
+
+
+
+
 
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -301,25 +319,11 @@ public class MainActivity extends AppCompatActivity
             /*INICIAMOS SI NO HAY EXTRAS*/
             URL_GLOBAL = "https://bestdream.store/Android/paginador_search/?";
             JSON_DATA_WEB_CALL(URL_GLOBAL, 20, offset_global);
+
+            JSON_DATA_WEB_CALL_MARCAS("https://bestdream.store/Android/ver_todas_las_marcas", 100, offset_global);
             /*INICIAMOS SI NO HAY EXTRAS*/
 
 
-
-        /*
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-
-            }
-        });
-
-        */
 
 
 
@@ -348,6 +352,11 @@ public class MainActivity extends AppCompatActivity
         Button login_logout = (Button) header.findViewById(R.id.login_logout);
 
         Button monedero_get = (Button)header.findViewById(R.id.monedero_get);
+
+
+
+        recyclerView_Marcas = (RecyclerView)header.findViewById(R.id.recyclerview_marcas);
+        recyclerView_Marcas.setHasFixedSize(true);
 
 
         ImageView image_ofertas = (ImageView)header.findViewById(R.id.image_ofertas);
@@ -384,6 +393,9 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+
+
 
 
 
@@ -731,157 +743,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-        if (id == R.id.nav_bissu) {
-
-            navigationView.getMenu().clear();
-            navigationView.inflateMenu(R.menu.bissu);
-
-            show_hide_logo_buttons_login("hidden");
-
-
-       }else if (id == R.id.nav_saniye) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/SANIYE?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_beauty_creations) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/BEAUTY%20CREATIONS?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_prosa) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Prosa?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_DUO) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/DUO?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_gugu) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/GUGU?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_pink_up) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Pink%20Up?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_mc_cosmetics) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/MC?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_rude) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Rude?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_trend_beauty) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Trend%20Beauty?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_klean_color) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Klean%20Color?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_profusion) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/Profusion?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_kjstudio) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/KJ?";
-             drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_docolor) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/DOCOLOR?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_toxik) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/TOXIK?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_bausse) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/BAUSSE?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_la_girl) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/LA%20Girl?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_la_colors) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/LA%20Colors?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_loli) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/LOLI?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_perplex_cosmetics) {
-
-            URL_GLOBAL = "https://bestdream.store/Android/marca/PerPlex?";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        }else if (id == R.id.nav_ligas) {
+       if (id == R.id.nav_ligas) {
 
             URL_GLOBAL = "https://bestdream.store/Android/marca/BELLE%20SCOTT?";
             drawer.closeDrawer(GravityCompat.START);
@@ -920,32 +782,7 @@ public class MainActivity extends AppCompatActivity
             intent_search(URL_GLOBAL);
 
 
-        } else if (id == R.id.esmaltes_15) {
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/capacidad_ml/?capacidad=15&producto=Esmalte&";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-
-        } else if (id == R.id.esmaltes_5){
-
-
-            URL_GLOBAL = "https://bestdream.store/Android/capacidad_ml/?capacidad=5&producto=Esmalte&";
-            drawer.closeDrawer(GravityCompat.START);
-            intent_search(URL_GLOBAL);
-
-
-        } else if (id == R.id.regresar_2){
-
-            navigationView.getMenu().clear();
-            navigationView.inflateMenu(R.menu.menu_1);
-
-            show_hide_logo_buttons_login("show");
-
-
-        } else if (id == R.id.estatus_mi_pedido){
+        }else if (id == R.id.estatus_mi_pedido){
 
 
             /*
@@ -1042,6 +879,96 @@ public class MainActivity extends AppCompatActivity
 
 
 
+    public void JSON_DATA_WEB_CALL_MARCAS(String PETICION_URL, int limit_, int offset_){
+
+        String URL_ENCODE = reemplazar_espacios_blanco_url(PETICION_URL);
+        Log.i("URL_ENCODE", PETICION_URL);
+
+
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.GET,
+                URL_ENCODE,
+                null,
+                new Response.Listener<JSONObject>() {
+
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+
+
+                        Log.e("ARRAY OPBJECT", String.valueOf(response));
+
+
+                        try {
+
+                            JSONArray array = response.getJSONArray("feed_marcas");
+
+                            for(int i=0;i<array.length();i++){
+                                // Get current json object
+
+                                Get_Marca_Adapter2 = new Get_Marca_Adapter();
+
+                                    JSONObject json_base_2 = array.getJSONObject(i);
+
+
+                                Log.e("NOMBRE_MARCA", json_base_2.getString("nombre_marca"));
+
+
+
+                                    Get_Marca_Adapter2.setmarca_image_url(json_base_2.getString("marca_image_url"));
+                                    Get_Marca_Adapter2.setnombre_marca(json_base_2.getString("nombre_marca"));
+                                    Get_Marca_Adapter2.setid_marca(json_base_2.getInt("id_marca"));
+                                    Get_Marca_Adapter2.setcategoria(json_base_2.getString("categorias"));
+
+
+
+
+                                Get_Marca_Adapter1.add(Get_Marca_Adapter2);
+                                recyclerViewadapter_marca = new RecyclerViewMarcasAdapter(Get_Marca_Adapter1,  getApplicationContext());
+                                recyclerView_Marcas.setAdapter(recyclerViewadapter_marca);
+
+
+
+
+
+
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+
+
+
+
+                    }
+                },
+                new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError error){
+
+                        Log.e("ARRAY OPBJECT ERROR", String.valueOf(error));
+
+                    }
+                }
+        );
+
+        requestQueue.add(jsonObjectRequest);
+
+
+
+    }
+
+
+
+
+
 
     public void JSON_DATA_WEB_CALL(String PETICION_URL, int limit_, int offset_){
 
@@ -1107,6 +1034,12 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
+
+
+
 
 
 

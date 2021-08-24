@@ -81,7 +81,20 @@
     </activity>
 
 
-    <activity
+
+        <activity
+            android:name=".CategoriasMarcas"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="Categorias"
+
+            >
+        </activity>
+
+
+
+        <activity
         android:name=".LIBS.Login"
         android:configChanges="orientation"
         android:screenOrientation="portrait"

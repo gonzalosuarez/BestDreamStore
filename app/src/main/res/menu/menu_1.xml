@@ -8,149 +8,6 @@
 
 
 
-    <item android:title="Nuestras Marcas">
-        <menu>
-            <item
-                android:id="@+id/nav_bissu"
-                android:icon="@drawable/ic_select"
-                android:title="BISSU" />
-
-            <item
-                android:id="@+id/nav_beauty_creations"
-                android:icon="@drawable/ic_select"
-                android:title="Beauty Creations" />
-
-
-            <item
-                android:id="@+id/nav_bausse"
-                android:icon="@drawable/ic_select"
-                android:title="BAUSSE" />
-
-
-            <item
-                android:id="@+id/nav_prosa"
-                android:icon="@drawable/ic_select"
-                android:title="Prosa" />
-
-
-            <item
-                android:id="@+id/nav_pink_up"
-                android:icon="@drawable/ic_select"
-                android:title="Pink Up" />
-
-
-            <item
-                android:id="@+id/nav_docolor"
-                android:icon="@drawable/ic_select"
-                android:title="Docolor" />
-
-
-            <item
-                android:id="@+id/nav_toxik"
-                android:icon="@drawable/ic_select"
-                android:title="Toxik" />
-
-
-
-            <item
-                android:id="@+id/nav_la_girl"
-                android:icon="@drawable/ic_select"
-                android:title="L.A. Girl" />
-
-
-            <item
-                android:id="@+id/nav_la_colors"
-                android:icon="@drawable/ic_select"
-                android:title="L.A. Colors" />
-
-
-
-            <item
-                android:id="@+id/nav_saniye"
-                android:icon="@drawable/ic_select"
-                android:title="SANIYE" />
-
-
-
-
-
-            <item
-                android:id="@+id/nav_DUO"
-                android:icon="@drawable/ic_select"
-                android:title="DUO" />
-
-
-
-            <item
-                android:id="@+id/nav_gugu"
-                android:icon="@drawable/ic_select"
-                android:title="Gugu Lashes" />
-
-
-
-
-
-            <item
-                android:id="@+id/nav_loli"
-                android:icon="@drawable/ic_select"
-                android:title="LOLI Nails" />
-
-
-            <item
-                android:id="@+id/nav_kjstudio"
-                android:icon="@drawable/ic_select"
-                android:title="KJ Studio" />
-
-
-            <item
-                android:id="@+id/nav_mc_cosmetics"
-                android:icon="@drawable/ic_select"
-                android:title="MC Cosmetics" />
-
-
-
-
-            <item
-                android:id="@+id/nav_rude"
-                android:icon="@drawable/ic_select"
-                android:title="Rude" />
-
-
-            <item
-                android:id="@+id/nav_trend_beauty"
-                android:icon="@drawable/ic_select"
-                android:title="Trend Beauty" />
-
-
-
-            <item
-                android:id="@+id/nav_klean_color"
-                android:icon="@drawable/ic_select"
-                android:title="Klean Color" />
-
-            <item
-                android:id="@+id/nav_profusion"
-                android:icon="@drawable/ic_select"
-                android:title="Profusion" />
-
-
-            <item
-                android:id="@+id/nav_perplex_cosmetics"
-                android:icon="@drawable/ic_select"
-                android:title="PerPlex Cosmetics" />
-
-
-
-
-            <item
-                android:id="@+id/nav_ligas"
-                android:icon="@drawable/ic_select"
-                android:title="Ligas Para Cabello" />
-
-
-
-        </menu>
-    </item>
 
 
 
@@ -173,6 +30,10 @@
                 android:id="@+id/nav_rostro"
                 android:icon="@drawable/ic_select"
                 android:title="Rostro" />
+            <item
+                android:id="@+id/nav_ligas"
+                android:icon="@drawable/ic_select"
+                android:title="Ligas Para Cabello" />
         </menu>
     </item>
 

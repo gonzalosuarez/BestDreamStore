@@ -126,8 +126,6 @@ public class Login extends Activity {
 
 
 
-
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 
@@ -140,6 +138,8 @@ public class Login extends Activity {
 
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, RC_SIGN_IN);
+
+
                 Toast.makeText(Login.this, "GOOGLE:", Toast.LENGTH_SHORT).show();
 
                 progress = ProgressDialog.show(Login.this, "Buscando....",
@@ -777,13 +777,14 @@ public class Login extends Activity {
 
         Log.w(TAG, "GOOGLE =" + requestCode);
 
+
+
         if (requestCode == RC_SIGN_IN) {
 
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
 
-
-
             try {
+
 
                 GoogleSignInAccount account = task.getResult(ApiException.class);
 

@@ -29,18 +29,16 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 
-/**
- * Created by JUNED on 6/16/2016.
- */
+
 
 public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartViewAdapter.ViewHolder> {
 
-    Context context;
     List<Get_Cart_Adapter> getDataAdapter;
     ImageView iv_cart;
 
-    Cart_Controller cart = new Cart_Controller(context);
-    int qty, multi_fin;
+    private Context context;
+
+    int qty;
     float precio_premium, SUBTOTAL_PROD;
     String precio_p, bar_code;
 

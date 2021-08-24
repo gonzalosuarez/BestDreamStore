@@ -10,6 +10,8 @@
 
 
 
+
+
         <ImageView
             android:layout_gravity="center_horizontal"
             android:id="@+id/image_logo_menu"
@@ -73,6 +75,25 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:scaleType="fitXY" />
+
+
+
+
+
+
+
+        <android.support.v7.widget.RecyclerView
+            android:background="#ffffff"
+            android:layout_marginTop="25dp"
+            android:id="@+id/recyclerview_marcas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:scrollbars="vertical"
+            android:gravity="center"/>
+
+
+
 
 
 
