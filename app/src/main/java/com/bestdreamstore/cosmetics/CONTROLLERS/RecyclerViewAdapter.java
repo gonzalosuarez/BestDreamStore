@@ -286,6 +286,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
+        }else if(MARKETING_FEED.equals("LIVERPOOL")){
+
+
+            layoutParams.setFullSpan(true);
+
+
+
+            Picasso.get().load("https://bestdream.store/Views/Default/img/app_android/te_podria_interesar.jpg").into(Viewholder.iv);
+
+            Viewholder.linearlayout_buttons.setVisibility(View.GONE);
+
+
+
+
+
         }
 
 
@@ -373,27 +388,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-            /*
-
-                if(!MARKETING.equals("marketing")){
-
-                    networkImageView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            String ID_ = id_text_global.getText().toString();
-                            Intent intent = new Intent(context.getApplicationContext(), Details.class);
-                            intent.putExtra("ID_PRODUCTO", ID_);
-                            context.startActivity(intent);
-
-                        }
-                    });
-
-                }
-
-
-
-*/
 
 
 

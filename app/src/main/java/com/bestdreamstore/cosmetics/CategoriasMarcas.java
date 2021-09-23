@@ -4,6 +4,7 @@ package com.bestdreamstore.cosmetics;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -67,6 +69,7 @@ public class CategoriasMarcas extends AppCompatActivity {
 
 
     TableLayout table_base;
+    ScrollView scroll_table;
     LinearLayout menu_content;
 
     @SuppressLint("StaticFieldLeak")
@@ -105,6 +108,12 @@ public class CategoriasMarcas extends AppCompatActivity {
 
 
         table_base = (TableLayout) findViewById(R.id.tabla_datos);
+
+        table_base.setLayoutParams(new TableLayout.LayoutParams(
+                TableLayout.LayoutParams.MATCH_PARENT,
+                TableLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+
+
         menu_content = (LinearLayout) findViewById(R.id.menu_content);
 
 
@@ -148,7 +157,7 @@ public class CategoriasMarcas extends AppCompatActivity {
         btn_menu_principal = new Button(this);
         btn_menu_principal.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         btn_menu_principal.setTextColor(Color.parseColor("#ffffff"));
-        btn_menu_principal.setText(" << Regresar a Menú Principal");
+        btn_menu_principal.setText("Regresar a Menú Principal");
         btn_menu_principal.setBackgroundResource(R.drawable.style_button_base);
         btn_menu_principal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +172,7 @@ public class CategoriasMarcas extends AppCompatActivity {
         btn_menu_marca = new Button(this);
         btn_menu_marca.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         btn_menu_marca.setTextColor(Color.parseColor("#ffffff"));
-        btn_menu_marca.setText(" << Menú "+marca);
+        btn_menu_marca.setText("Ir a Menú de "+marca);
         btn_menu_marca.setBackgroundResource(R.drawable.style_button_base);
         btn_menu_marca.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +193,14 @@ public class CategoriasMarcas extends AppCompatActivity {
             Picasso.get().load("https://bestdream.store/Views/Default/img/marcas/bissu.jpg").into(logo_marca);
 
         }else if(marca.equals("Beauty Creations")){
+
+            Picasso.get().load("https://bestdream.store/Views/Default/img/marcas/bc.jpg").into(logo_marca);
+
+        }else if(marca.equals("Prosa")){
+
+            Picasso.get().load("https://bestdream.store/Views/Default/img/marcas/bc.jpg").into(logo_marca);
+
+        }else if(marca.equals("KJ")){
 
             Picasso.get().load("https://bestdream.store/Views/Default/img/marcas/bc.jpg").into(logo_marca);
 
@@ -222,7 +239,7 @@ public class CategoriasMarcas extends AppCompatActivity {
         menu_content.removeAllViews();
 
         menu_content.addView(btn_menu_principal);
-        btn_menu_principal.setText("Buscando............");
+        btn_menu_principal.setText("Buscando Categorias");
 
 
 
@@ -258,15 +275,24 @@ public class CategoriasMarcas extends AppCompatActivity {
                                 final String MARCA_ = json_base_2.getString("marca_perteneciente");
 
 
+
+
+
+
                                 table_base = (TableLayout) findViewById(R.id.tabla_datos);
                                 TableRow tr =  new TableRow(getApplicationContext());
                                 tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
 
                                 TextView txtGeneric = new TextView(getApplicationContext());
-                                txtGeneric.setText(CATEGORIA_);
-                                txtGeneric.setTextSize(30);
+                                txtGeneric.setText(" "+CATEGORIA_);
+                                txtGeneric.setTextSize(25);
                                 tr.addView(txtGeneric);
                                 table_base.addView(tr);
+
+
+                                /*BACKGROUND COLOR TABLA*/
+                                tr.setBackgroundDrawable(getResources().getDrawable(R.drawable.table_base));
+                                /*BACKGROUND COLOR TABLA*/
 
 
 
@@ -329,7 +355,7 @@ public class CategoriasMarcas extends AppCompatActivity {
         menu_content.addView(btn_menu_marca);
 
 
-        btn_menu_principal.setText("Buscando............");
+        btn_menu_principal.setText("Buscando Sub Categorias");
 
 
 
@@ -369,11 +395,13 @@ public class CategoriasMarcas extends AppCompatActivity {
                                 table_base = (TableLayout) findViewById(R.id.tabla_datos);
 
                                 TableRow tr =  new TableRow(getApplicationContext());
-                                tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+                                /*BACKGROUND COLOR TABLA*/
+                                tr.setBackgroundDrawable(getResources().getDrawable(R.drawable.table_base));
+                                /*BACKGROUND COLOR TABLA*/
 
                                 TextView txtGeneric = new TextView(getApplicationContext());
-                                txtGeneric.setText(json_base_2.getString("nombre_subcategoria"));
-                                txtGeneric.setTextSize(30);
+                                txtGeneric.setText(" "+json_base_2.getString("nombre_subcategoria"));
+                                txtGeneric.setTextSize(25);
                                 tr.addView(txtGeneric);
                                 table_base.addView(tr);
 

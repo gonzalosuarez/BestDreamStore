@@ -376,6 +376,9 @@ public class Searchs extends AppCompatActivity {
                 JSONObject json_base_2 = array.getJSONObject(i);
 
                 String images_extras_txt = json_base_2.getString("images_extras");
+                String categoria = json_base_2.getString("categoria");
+
+
                 JSONObject images_extras = new JSONObject(images_extras_txt);
                 JSONArray feed_img = images_extras.getJSONArray("feed");
 
@@ -401,6 +404,17 @@ public class Searchs extends AppCompatActivity {
                         arr_fin_extras.add(json_base_3.getString("imagen"));
 
                     }
+
+                }
+
+
+
+                if(categoria.equals("LIVERPOOL")){
+
+
+                    GetDataAdapter2.setmarketing("LIVERPOOL");
+
+
 
                 }
 
