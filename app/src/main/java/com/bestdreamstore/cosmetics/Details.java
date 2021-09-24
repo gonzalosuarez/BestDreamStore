@@ -84,7 +84,7 @@ public class Details extends AppCompatActivity
     JSONArray feed_todos, feed_images_extras;
     String request_url, CATEGORIA;
     SliderUtils sliderUtils;
-    int FEED_SIZE_GLOBAL;
+    int FEED_SIZE_GLOBAL, EXISTENCIA_GLOBAL, INVENTARIO_GLOBAL;
 
     String ID_PRODUCTO_GLOBAL, NOMBRE_PRODUCTO_GLOBAL, IMAGEN_PRODUCTO_GLOBAL, CATEGORIA_PRODUCTO_GLOBAL, MARCA_PRODUCTO_GLOBAL, BAR_CODE_GLOBAL;
 
@@ -316,6 +316,8 @@ public class Details extends AppCompatActivity
                         CATEGORIA_PRODUCTO_GLOBAL = json_json.getString("categoria");
                         MARCA_PRODUCTO_GLOBAL = json_json.getString("marca");
                         BAR_CODE_GLOBAL = json_json.getString("bar_code");
+                        EXISTENCIA_GLOBAL = json_json.getInt("existencia");
+                        INVENTARIO_GLOBAL = json_json.getInt("inventario");
 
 
                         int precio_mayoreo_url = json_json.getInt("precio_mayoreo");
@@ -364,10 +366,37 @@ public class Details extends AppCompatActivity
 
 
                         cart = new Cart_Controller(getApplicationContext());
+
+
+
+                        if(EXISTENCIA_GLOBAL == 0){
+
+
+                            add_cart_details.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_bloqueo, 0, 0, 0);
+                            add_cart_details.setBackgroundColor(add_cart_details.getContext().getResources().getColor(R.color.red_traslucid));
+                            add_cart_details.setText("No Disponible");
+
+
+                        }else if(INVENTARIO_GLOBAL <= 0){
+
+
+                            add_cart_details.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_bloqueo, 0, 0, 0);
+                            add_cart_details.setBackgroundColor(add_cart_details.getContext().getResources().getColor(R.color.red_traslucid));
+                            add_cart_details.setText("No Existencias");
+
+
+                        }
+
+
+
+
+
                         if(cart.check_if_prod_in_cart(ID_PRODUCTO_GLOBAL)){
 
 
+
                             add_cart_details.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_done_ok, 0, 0, 0);
+
 
 
                         }else{
@@ -377,13 +406,33 @@ public class Details extends AppCompatActivity
                                 @Override
                                 public void onClick(View view) {
 
-                                    cart = new Cart_Controller(getApplicationContext());
-                                    boolean response = cart.ADD_CART_DETAILS_SKU(ID_PRODUCTO_GLOBAL);
-                                    if (response) {
 
-                                        add_cart_details.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_done_ok, 0, 0, 0);
+                                    if(EXISTENCIA_GLOBAL == 0){
+
+
+                                        Toast.makeText(getApplicationContext(), "No Disponible", Toast.LENGTH_LONG).show();
+
+
+                                    }else if(INVENTARIO_GLOBAL <= 0){
+
+
+                                        Toast.makeText(getApplicationContext(), "No Existencias", Toast.LENGTH_LONG).show();
+
+
+                                    }else{
+
+                                        cart = new Cart_Controller(getApplicationContext());
+                                        boolean response = cart.ADD_CART_DETAILS_SKU(ID_PRODUCTO_GLOBAL);
+                                        if (response) {
+
+                                            add_cart_details.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_done_ok, 0, 0, 0);
+
+                                        }
+
 
                                     }
+
+
                                 }
                             });
 

@@ -6,30 +6,24 @@ import android.graphics.Typeface;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.bestdreamstore.cosmetics.ADAPTERS.GetDataAdapter;
 import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
 import com.bestdreamstore.cosmetics.Details;
 import com.bestdreamstore.cosmetics.LIBS.HTMLTextView;
 import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
-import com.bestdreamstore.cosmetics.MainActivity;
 import com.bestdreamstore.cosmetics.R;
+import com.bestdreamstore.cosmetics.Searchs;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -55,6 +49,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public String ID_PRODUCTO_GLOBAL, NOMBRE_PRODUCTO_GLOBAL, IMAGEN_PRODUCTO_GLOBAL, CATEGORIA_PRODUCTO_GLOBAL, MARCA_PRODUCTO_GLOBAL;
 
     public String PRODUCTO_GLOBAL, PRECIO_PREMIUM_GLOBAL, COSTO_PRODUCTO_GLOBAL, COSTO_ENVIO_GLOBAL, BAR_CODE_GLOBAL;
+
+    public int EXISTENCIA_GLOBAL, INVENTARIO_GLOBAL;
 
 
 
@@ -118,14 +114,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
+
+
+        /*
+
         if(MARKETING_FEED.equals("marketing")){
-
-
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
 
             layoutParams.setFullSpan(true);
 
@@ -179,17 +172,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
 
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
-            /*FEED MARKETING ACTIVADO*/
+        }
+
+       */
 
 
 
 
 
-        }else if(MARKETING_FEED.equals("feed_normal")){
+
+            if(MARKETING_FEED.equals("feed_normal")){
 
 
 
@@ -210,6 +202,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 PRODUCTO_GLOBAL = getDataAdapter1.getproducto();
                 COSTO_ENVIO_GLOBAL = getDataAdapter1.getpeso();
                 BAR_CODE_GLOBAL = getDataAdapter1.getbar_code();
+                EXISTENCIA_GLOBAL = getDataAdapter1.getexistencia();
+                INVENTARIO_GLOBAL = getDataAdapter1.getinventario();
+
+
+
 
 
                 int precio_mayoreo_url = Integer.parseInt(getDataAdapter1.getprecio_mayoreo());
@@ -243,7 +240,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                 if(cart.check_if_prod_in_cart(getDataAdapter1.getid())){
 
-
                     Viewholder.add_cart.setImageResource(R.drawable.ic_done_ok);
 
 
@@ -252,6 +248,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     Viewholder.add_cart.setImageResource(R.drawable.icon_cesta);
 
                 }
+
+
+
+
+
+                if(EXISTENCIA_GLOBAL == 0){
+
+                    Viewholder.add_cart.setImageResource(R.drawable.ic_bloqueo);
+
+                }else if(INVENTARIO_GLOBAL <= 0){
+
+
+                    Viewholder.add_cart.setImageResource(R.drawable.ic_bloqueo);
+
+                }
+
+
+
+
 
 
 
@@ -281,23 +296,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             Picasso.get().load("https://bestdream.store/Views/Default/img/app_android/te_podria_interesar.jpg").into(Viewholder.iv);
 
             Viewholder.linearlayout_buttons.setVisibility(View.GONE);
-
-
-
-
-
-        }else if(MARKETING_FEED.equals("LIVERPOOL")){
-
-
-            layoutParams.setFullSpan(true);
-
-
-
-            Picasso.get().load("https://bestdream.store/Views/Default/img/app_android/te_podria_interesar.jpg").into(Viewholder.iv);
-
-            Viewholder.linearlayout_buttons.setVisibility(View.GONE);
-
-
 
 
 
@@ -401,11 +399,29 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     @Override
                     public void onClick(View v) {
 
-                        String ID_ = id_text_global.getText().toString();
-                        boolean response = cart.ADD_CART_SKU(ID_);
-                        if (response) {
-                            add_cart.setImageResource(R.drawable.ic_done_ok);
+
+                        if(EXISTENCIA_GLOBAL == 0){
+
+
+                            Toast.makeText(context, "No Disponible", Toast.LENGTH_LONG).show();
+
+                        }else if(INVENTARIO_GLOBAL <= 0){
+
+                            Toast.makeText(context, "No Existencias", Toast.LENGTH_LONG).show();
+
+
+                        }else{
+
+                            String ID_ = id_text_global.getText().toString();
+                            boolean response = cart.ADD_CART_SKU(ID_);
+                            if (response) {
+                                add_cart.setImageResource(R.drawable.ic_done_ok);
+                            }
+
+
+
                         }
+
 
                     }
                 });

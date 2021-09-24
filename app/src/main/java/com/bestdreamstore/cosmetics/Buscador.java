@@ -476,6 +476,8 @@ public class Buscador extends AppCompatActivity {
                 GetDataAdapter2.setmarca(json_base_2.getString("marca"));
                 GetDataAdapter2.setproducto(json_base_2.getString("producto"));
                 GetDataAdapter2.setcategoria(json_base_2.getString("categoria"));
+                GetDataAdapter2.setexistencia(json_base_2.getInt("existencia"));
+                GetDataAdapter2.setinventario(json_base_2.getInt("inventario"));
 
 
 

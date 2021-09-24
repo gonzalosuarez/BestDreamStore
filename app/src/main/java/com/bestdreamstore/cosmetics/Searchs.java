@@ -172,12 +172,12 @@ public class Searchs extends AppCompatActivity {
 
 
                         URL_GLOBAL = "https://bestdream.store/Android/paginador_search/?";
-                        JSON_DATA_WEB_CALL(URL_GLOBAL , 10, offset_global);
+                        JSON_DATA_WEB_CALL(URL_GLOBAL , 20, offset_global);
 
 
                     }else{
 
-                        JSON_DATA_WEB_CALL(URL_GLOBAL, 10, offset_global);
+                        JSON_DATA_WEB_CALL(URL_GLOBAL, 20, offset_global);
 
                     }
 
@@ -395,6 +395,7 @@ public class Searchs extends AppCompatActivity {
 
 
 
+
                 if(feed_img.length() > 0){
 
                     for(int x=0;x<feed_img.length();x++){
@@ -458,6 +459,8 @@ public class Searchs extends AppCompatActivity {
                 GetDataAdapter2.setproducto(json_base_2.getString("producto"));
                 GetDataAdapter2.setcategoria(json_base_2.getString("categoria"));
                 GetDataAdapter2.setbar_code(json_base_2.getString("bar_code"));
+                GetDataAdapter2.setexistencia(json_base_2.getInt("existencia"));
+                GetDataAdapter2.setinventario(json_base_2.getInt("inventario"));
 
 
 

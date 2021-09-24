@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/bloqueo.xml" value="0.18958333333333333" />
+        <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/border_light.xml" value="0.18958333333333333" />
+        <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/border_top.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/custom_cursor.xml" value="0.190625" />
+        <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/ic_done_ok.xml" value="0.18958333333333333" />
         <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/ic_select.xml" value="0.1484375" />
         <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/icon_back.xml" value="0.190625" />
         <entry key="..\:/Users/bestd/Bestdream/app/src/main/res/drawable/style_button_base.xml" value="0.190625" />

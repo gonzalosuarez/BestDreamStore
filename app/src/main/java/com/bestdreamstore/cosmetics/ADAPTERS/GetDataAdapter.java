@@ -19,10 +19,27 @@ public class GetDataAdapter {
     public String decimales_costo;
     public String peso;
     public String image_if_in_cart;
+    public int existencia;
+    public int inventario;
 
 
 
 
+    public int getexistencia() {
+        return existencia;
+    }
+    public void setexistencia(int existencia) {
+        this.existencia = existencia;
+    }
+
+
+
+    public int getinventario() {
+        return inventario;
+    }
+    public void setinventario(int inventario) {
+        this.inventario = inventario;
+    }
 
 
 

@@ -1009,6 +1009,8 @@ public class MainActivity extends AppCompatActivity
 
                             JSONArray array = response.getJSONArray("feed_todos");
                             int cout_busqueda_total = response.getInt("num_rows");
+
+
                             JSON_PARSE_DATA_AFTER_WEBCALL(array, cout_busqueda_total);
                             //Log.i("ARRAY_FINAL", "JSON" + array + "---");
                             //Log.i("ARRAY_COUNT", "count" + cout_busqueda_total + "---");
@@ -1156,6 +1158,8 @@ public class MainActivity extends AppCompatActivity
                 GetDataAdapter2.setproducto(json_base_2.getString("producto"));
                 GetDataAdapter2.setcategoria(json_base_2.getString("categoria"));
                 GetDataAdapter2.setbar_code(json_base_2.getString("bar_code"));
+                GetDataAdapter2.setexistencia(json_base_2.getInt("existencia"));
+                GetDataAdapter2.setinventario(json_base_2.getInt("inventario"));
 
 
 
