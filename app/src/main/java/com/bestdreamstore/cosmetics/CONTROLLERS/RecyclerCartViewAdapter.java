@@ -1,9 +1,13 @@
 package com.bestdreamstore.cosmetics.CONTROLLERS;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.Image;
 import android.support.v7.widget.RecyclerView;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -12,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Spinner;
@@ -24,6 +29,7 @@ import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
 import com.bestdreamstore.cosmetics.R;
 import com.squareup.picasso.Picasso;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.List;
@@ -41,6 +47,7 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
     int qty;
     float precio_premium, SUBTOTAL_PROD;
     String precio_p, bar_code;
+
 
 
 
@@ -97,7 +104,11 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
         qty = getDataAdapter1.getqty();
 
-        Viewholder.spinner.setSelection(qty);
+        //Viewholder.spinner.setSelection(qty);
+        //Viewholder.change_qty.setText(getDataAdapter1.getqty());
+
+
+
 
 
 
@@ -108,7 +119,7 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
 
         //SUBTOTAL_PROD += getDataAdapter1.getSub_Total();
-        precio_p = String.valueOf(SUBTOTAL_PROD);
+        precio_p = String.valueOf(String.format("%.2f", SUBTOTAL_PROD));
 
         bar_code = getDataAdapter1.getbar_code();
 
@@ -116,6 +127,7 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
 
         Viewholder.totales.setText("$"+precio_p);
+        Viewholder.change_qty.setText("QTY: "+getDataAdapter1.getqty());
 
 
         Log.e("PRODUCTO PRECIO:", String.valueOf(precio_premium));
@@ -148,8 +160,9 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
         public TextView totales, B_C;
         public TextView ID_PRODUCTO;
-        public Spinner spinner;
+        //public Spinner spinner;
         public ImageView iv_cart, delete;
+        public Button change_qty;
 
 
         public NetworkImageView networkImageView;
@@ -162,6 +175,7 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
         public ViewHolder(final View itemView) {
 
             super(itemView);
+            final Cart_Controller cart = new Cart_Controller(context);
 
 
 
@@ -171,9 +185,129 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
             iv_cart = (ImageView) itemView.findViewById(R.id.iv_cart);
 
 
-            final Cart_Controller cart = new Cart_Controller(context);
+            change_qty = (Button)itemView.findViewById(R.id.change_qty);
+            change_qty.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
 
 
+                   // ID_PRODUCTO.getText().toString();
+
+
+                    AlertDialog.Builder builderSingle = new AlertDialog.Builder(context);
+                    builderSingle.setIcon(R.drawable.icon_cesta);
+                    builderSingle.setTitle("Selecciona Cantidad");
+
+                    final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(context, android.R.layout.select_dialog_singlechoice);
+                    arrayAdapter.add("1");
+                    arrayAdapter.add("2");
+                    arrayAdapter.add("3");
+                    arrayAdapter.add("4");
+                    arrayAdapter.add("5");
+                    arrayAdapter.add("+6");
+
+
+
+                    builderSingle.setAdapter(arrayAdapter, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            String qty_change = arrayAdapter.getItem(which);
+
+                            if(qty_change.equals("+6")){
+
+
+
+                                AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                                alertDialog.setTitle("Que Cantidad Necesitas?");
+                                alertDialog.setMessage("Cantidad Máxima: 30 ");
+
+                                final EditText edit_text_qty = new EditText(context);
+                                LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                                        LinearLayout.LayoutParams.MATCH_PARENT,
+                                        LinearLayout.LayoutParams.MATCH_PARENT);
+                                edit_text_qty.setLayoutParams(lp);
+
+                                edit_text_qty.setInputType(InputType.TYPE_CLASS_NUMBER);
+                                edit_text_qty.setFilters( new InputFilter[]{ new Min_Max_EditText( "1" , "30" )}) ;
+
+                                alertDialog.setView(edit_text_qty);
+                                alertDialog.setIcon(R.drawable.icon_cesta);
+
+                                alertDialog.setPositiveButton("Aceptar",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                String qty_2 = edit_text_qty.getText().toString();
+                                                if (!qty_2.equals("")) {
+
+                                                    cart.UPDATE_QTY(ID_PRODUCTO.getText().toString(), Integer.parseInt(qty_2), context);
+                                                    notifyDataSetChanged();
+                                                    dialog.dismiss();
+
+                                                }else{
+
+                                                    Toast.makeText(context,
+                                                            "Ingresa Cantidad", Toast.LENGTH_SHORT).show();
+
+                                                }
+                                            }
+                                        });
+
+                                alertDialog.setNegativeButton("Cancelar",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                            }
+                                        });
+
+                                alertDialog.show();
+
+
+
+
+
+                            }else{
+
+
+
+                                cart.UPDATE_QTY(ID_PRODUCTO.getText().toString(), Integer.parseInt(qty_change), context);
+                                notifyDataSetChanged();
+                                dialog.dismiss();
+
+
+
+                            }
+
+
+
+                        }
+                    });
+
+
+
+                    builderSingle.setNegativeButton("CERRAR", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+
+
+                    builderSingle.show();
+
+
+
+                }
+
+            });
+
+
+
+
+
+            /*
 
 
             spinner = (Spinner) itemView.findViewById(R.id.cantidad);
@@ -191,6 +325,10 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
                 }
             });
+
+
+
+
 
 
 
@@ -224,7 +362,7 @@ public class RecyclerCartViewAdapter extends RecyclerView.Adapter<RecyclerCartVi
 
             });
 
-
+*/
             //cantidad_txt.setText(String.valueOf(cantidad));
 
 

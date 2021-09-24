@@ -85,6 +85,7 @@ public class Login extends Activity {
 
 
 
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -174,6 +175,8 @@ public class Login extends Activity {
             public void onSuccess(LoginResult loginResult) {
 
 
+
+
                 GraphRequest request = GraphRequest.newMeRequest(
                         AccessToken.getCurrentAccessToken(),
                         new GraphRequest.GraphJSONObjectCallback() {
@@ -183,22 +186,25 @@ public class Login extends Activity {
                                     GraphResponse response) {
                                 try {
 
-                                    //Log.d("JSON_FB1", "fb json object: " + object);
-                                    //Log.d("JSON_FB2", "fb graph response: " + response);
-                                    //Log.d("JSON_FB3", "EMAIL: " + object.getString("email"));
+                                    Log.d("JSON_FACE1", "fb json object: " + object);
+                                    Log.d("JSON_FACE2", "fb graph response: " + response);
+                                    Log.d("JSON_FACE3", "EMAIL: " + object.getString("email"));
 
                                     String id = object.getString("id");
                                     String full_name = object.getString("first_name")+" "+object.getString("last_name");
                                     String image_url = "http://graph.facebook.com/" + id + "/picture?type=large";
 
-                                    login_url_redes_sociales(object.getString("email"), image_url, full_name);
+                                   login_url_redes_sociales(object.getString("email"), image_url, full_name);
 
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
+                                    Log.v("ERROR_FACE_try_catch", "----onError: " + e);
                                 }
                             }
                         });
+
+
                 Bundle parameters = new Bundle();
                 parameters.putString("fields", "id,email,first_name,last_name"); // id,first_name,last_name,email,gender,birthday,cover,picture.type(large)
                 request.setParameters(parameters);
@@ -213,14 +219,12 @@ public class Login extends Activity {
 
             @Override
             public void onCancel() {
-                //Toast.makeText(Login.this,getResources().getString(R.string.login_canceled_facebooklogin),Toast.LENGTH_SHORT).show();
-               // progress.dismiss();
+                Log.v("FACE_cancel", "----onError: ");
             }
 
             @Override
             public void onError(FacebookException error) {
-                //Toast.makeText(FacebookLogin.this,getResources().getString(R.string.login_failed_facebooklogin),Toast.LENGTH_SHORT).show();
-               // progress.dismiss();
+                Log.v("FACE_error_fb", "----onError: " + error.getMessage());
             }
         });
 
