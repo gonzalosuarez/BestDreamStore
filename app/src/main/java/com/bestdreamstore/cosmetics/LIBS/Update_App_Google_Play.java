@@ -77,6 +77,8 @@ public class Update_App_Google_Play {
             if (installState.installStatus() == InstallStatus.DOWNLOADED) {
 
 
+                /*
+
                 Snackbar.make(activity.findViewById(android.R.id.content), "Actualizar App Google Play", Snackbar.LENGTH_LONG)
                         .setAction("Actualizar", new View.OnClickListener() {
                             @Override
@@ -87,7 +89,7 @@ public class Update_App_Google_Play {
                         .setActionTextColor(activity.getResources().getColor(R.color.com_facebook_button_background_color_pressed))
                         .show();
 
-
+                */
 
                 Log.e("UPDATE", "FLEXIBLE BASE");
 
@@ -125,7 +127,7 @@ public class Update_App_Google_Play {
                                 }
                             }else if(appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_NOT_AVAILABLE){
 
-                                    /*NO HAY ACTUALIZACION DISPONIBLE*/
+                                    /*NO HAY ACTUALIZACION DISPONIBLE
 
                                 Snackbar snackbar =
                                         Snackbar.make(
@@ -138,6 +140,8 @@ public class Update_App_Google_Play {
                                 snackbar.setActionTextColor(activity.getResources().getColor(R.color.com_facebook_button_background_color_pressed))
                                 ;
                                 snackbar.show();
+
+                                     */
 
 
 
