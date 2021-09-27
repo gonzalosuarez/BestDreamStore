@@ -324,6 +324,7 @@ public class Cart_Controller {
     public static void SHOW_POOP_UP_CART(final Context ctx) {
 
         final UserFunctions userFunction = new UserFunctions();
+        DatabaseHandler db = new DatabaseHandler(ctx);
 
         GetCartAdapter1.clear();
 
@@ -405,7 +406,14 @@ public class Cart_Controller {
 
 
                 int precio_envio = userFunction.get_envio_costo();
-                datos_pedido_html.setText("Envío: <span style='color:red'> $"+precio_envio+".00 </span>");
+
+
+                if(db.Count_Cart() > 0){
+                    datos_pedido_html.setText("Envío: <span style='color:red'> $"+precio_envio+".00 </span>");
+                }else{
+                    datos_pedido_html.setText("Envío: <span style='color:red'> $0 </span>");
+                }
+
 
                 recyclerView_global = GET_CART(ctx);
 

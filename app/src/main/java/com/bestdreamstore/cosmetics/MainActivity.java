@@ -63,11 +63,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+import com.bestdreamstore.cosmetics.LIBS.Update_App_Google_Play;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -124,6 +125,10 @@ public class MainActivity extends AppCompatActivity
 
     int contador = 0;    String URL_GLOBAL = "";
 
+    private AppUpdateManager appUpdateManager;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,20 +138,22 @@ public class MainActivity extends AppCompatActivity
 
 
         /*INICIALIZAMOS CARRITO*/
-           //Cart_Controller.update_icon_cart(getApplicationContext());
+
         /*INICIALIZAMOS CARRITO*/
 
 
 
 
         userFunctions = new UserFunctions();
+        Update_App_Google_Play Actualizar_App = new Update_App_Google_Play();
         db = new DatabaseHandler(getApplicationContext());
 
 
 
-        /*ANALITYCS GOOGLE*/
-        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        /*ANALITYCS GOOGLE*/
+        appUpdateManager = AppUpdateManagerFactory.create(this);
+        Actualizar_App.setFlexibleUpdate(appUpdateManager, this);
+
+
 
 
 
@@ -1213,10 +1220,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
-
-
-
     public void intent_browser(String URL){
 
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
@@ -1224,6 +1227,16 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
+
+
+
+
+
+
+
+
+
 
 
 

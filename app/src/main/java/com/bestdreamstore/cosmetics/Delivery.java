@@ -116,9 +116,6 @@ public class Delivery extends AppCompatActivity {
 
         panton = ResourcesCompat.getFont(this, R.font.panton_font);
 
-        /*ANALITYCS GOOGLE*/
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        /*ANALITYCS GOOGLE*/
 
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar_delivery);

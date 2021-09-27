@@ -236,6 +236,35 @@ public class UserFunctions {
 
 
 
+    public String get_version_code(){
+
+        String url_version = "https://bestdream.store/Android/get_version_code/";
+
+        HashMap<String, String> params = new HashMap<>();
+        String version = "0";
+
+
+        JSONObject json = jsonParser.makeHttpRequest(url_version, "POST",params);
+        try {
+
+
+            version = json.getString("last_version_code");
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        Log.e("VERSION_CODE", json.toString());
+        return version;
+
+
+    }
+
+
 
 
 

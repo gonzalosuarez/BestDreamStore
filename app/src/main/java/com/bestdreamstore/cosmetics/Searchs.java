@@ -350,7 +350,7 @@ public class Searchs extends AppCompatActivity {
 
         if(offset_global >= count_busqueda_total){
 
-            GetDataAdapter2.setmarketing("te_podria_interesar");
+           // GetDataAdapter2.setmarketing("te_podria_interesar");
             contador = 6;
             Log.i("COUNTERS_G_ES_MAYOR", "LISTO!!! " + offset_global + "-- >= --"+ count_busqueda_total);
             offset_global = 0;
