@@ -1,23 +1,13 @@
 package com.bestdreamstore.cosmetics.LIBS;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.DynamicLayout;
-import android.text.Editable;
 import android.text.Html;
-import android.text.Spannable;
 import android.text.Spanned;
-import android.text.StaticLayout;
-import android.text.style.StrikethroughSpan;
 import android.util.AttributeSet;
-import android.support.v7.widget.AppCompatTextView;
-
-import org.xml.sax.XMLReader;
-
-import java.lang.reflect.Field;
+import androidx.appcompat.widget.AppCompatTextView;
 
 
-public class HTMLTextView extends android.support.v7.widget.AppCompatTextView {
+public class HTMLTextView extends androidx.appcompat.widget.AppCompatTextView {
     public HTMLTextView(Context context) {
         super(context);
     }

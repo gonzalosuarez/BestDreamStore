@@ -1,17 +1,11 @@
 package com.bestdreamstore.cosmetics.CONTROLLERS;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Parcelable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,10 +26,8 @@ import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
 import com.bestdreamstore.cosmetics.Delivery;
 import com.bestdreamstore.cosmetics.LIBS.DownloadImageTask;
 import com.bestdreamstore.cosmetics.LIBS.HTMLTextView;
-import com.bestdreamstore.cosmetics.LIBS.Login;
 import com.bestdreamstore.cosmetics.LIBS.SliderVolleyRequest;
 import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
-import com.bestdreamstore.cosmetics.MainActivity;
 import com.bestdreamstore.cosmetics.R;
 
 import org.json.JSONArray;
@@ -44,10 +36,6 @@ import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import static android.content.Context.ACTIVITY_SERVICE;
 
 
 public class Cart_Controller {
@@ -669,6 +657,50 @@ public class Cart_Controller {
 
 
 
+
+
+
+    public static void Build_Counter_Cart(Context ctx) {
+
+
+        int res = Cart_Controller.total_products_in_cart(ctx);
+
+
+
+
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.FILL_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        //create a layout
+        LinearLayout layout = new LinearLayout(ctx);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        //create a button
+        Button btnAddARoom = new Button(ctx);
+        btnAddARoom.setText("Add");
+        btnAddARoom.setLayoutParams(params);
+
+
+        //add the button
+        layout.addView(btnAddARoom);
+
+        //create the layout param for the layout
+        LinearLayout.LayoutParams layoutParam = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.FILL_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+
+
+        //getWindow().addContentView(layout, layoutParam);
+
+
+
+
+
+    }
 
 
 

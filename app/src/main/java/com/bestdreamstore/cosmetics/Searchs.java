@@ -1,32 +1,18 @@
 package com.bestdreamstore.cosmetics;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,10 +25,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -50,21 +32,9 @@ import java.util.Random;
 import com.bestdreamstore.cosmetics.ADAPTERS.GetDataAdapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.Cart_Controller;
 import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerViewAdapter;
-import com.bestdreamstore.cosmetics.CONTROLLERS.SliderAdapter;
-import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
-import com.bestdreamstore.cosmetics.LIBS.BadgeCartIcon;
-import com.bestdreamstore.cosmetics.LIBS.DownloadImageTask;
-import com.bestdreamstore.cosmetics.LIBS.Login;
-import com.bestdreamstore.cosmetics.LIBS.SliderUtils;
-import com.bestdreamstore.cosmetics.LIBS.SliderVolleyRequest;
-import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
+
 import android.os.StrictMode;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 

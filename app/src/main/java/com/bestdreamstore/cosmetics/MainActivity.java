@@ -1,30 +1,29 @@
 package com.bestdreamstore.cosmetics;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -48,18 +47,17 @@ import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerViewAdapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.RecyclerViewMarcasAdapter;
 import com.bestdreamstore.cosmetics.CONTROLLERS.SliderAdapter;
 import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
+import com.bestdreamstore.cosmetics.LIBS.BadgeCartIcon;
 import com.bestdreamstore.cosmetics.LIBS.DownloadImageTask;
 import com.bestdreamstore.cosmetics.LIBS.Login;
 import com.bestdreamstore.cosmetics.LIBS.SliderUtils;
 import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
 import android.os.StrictMode;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -140,7 +138,7 @@ public class MainActivity extends AppCompatActivity
         /*INICIALIZAMOS CARRITO*/
 
         /*INICIALIZAMOS CARRITO*/
-
+        //Drawable Build_Counter_Cart();
 
 
 
@@ -645,7 +643,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-/*
+
 
     public void update_cart_icon_principal(){
 
@@ -693,7 +691,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-*/
+
 
     /*CONTADOR DE CARRITO*/
     /*CONTADOR DE CARRITO*/

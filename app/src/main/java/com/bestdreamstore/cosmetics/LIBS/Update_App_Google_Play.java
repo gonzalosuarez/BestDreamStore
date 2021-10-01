@@ -3,13 +3,8 @@ package com.bestdreamstore.cosmetics.LIBS;
 
 import android.app.Activity;
 import android.content.IntentSender;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
-import com.bestdreamstore.cosmetics.Inicio;
-import com.bestdreamstore.cosmetics.R;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.AppUpdateType;

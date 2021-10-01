@@ -121,13 +121,12 @@ public class Login extends Activity {
 
 
 
-        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
 
-
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
 
 
@@ -149,6 +148,8 @@ public class Login extends Activity {
 
             }
         });
+
+
 
 
         /*GOOGLE*/
@@ -767,7 +768,10 @@ public class Login extends Activity {
 
 
 
-
+/*
+*
+07:95:72:FC:94:6C:60:88:5B:AE:9C:75:3E:2F:50:DA:A8:A4:F8:33
+* */
 
 
 
@@ -791,6 +795,7 @@ public class Login extends Activity {
 
 
                 GoogleSignInAccount account = task.getResult(ApiException.class);
+                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN_BASE message=" + account);
 
                 //Toast.makeText(Login.this, "EMAIL_GOOGLE:"+email_google, Toast.LENGTH_SHORT).show(); //Correcto
                 if (account != null) {
@@ -798,16 +803,22 @@ public class Login extends Activity {
                     String personName = account.getDisplayName();
                     String email_google = account.getEmail();
 
+                    Log.w(TAG, "RESPONSE_GOOGLE_LOGIN message=" + account);
+
                     login_url_redes_sociales(email_google, "https://bestdream.store/Views/Default/img/app_android/icon_google.png", personName);
 
                     progress.dismiss();
+
+                }else{
+
+                    Log.w(TAG, "RESPONSE_GOOGLE_LOGIN_NULL message=" + account);
 
                 }
 
             } catch (ApiException e) {
 
-                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN code=" + e.getStatusCode());
-                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN message=" + e.getMessage());
+                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN_ERR_CODE code=" + e.getStatusCode());
+                Log.w(TAG, "RESPONSE_GOOGLE_LOGIN_ERR_MSG message=" + e.getMessage());
 
 
             }

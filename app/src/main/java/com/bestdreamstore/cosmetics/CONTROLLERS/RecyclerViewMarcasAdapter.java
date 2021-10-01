@@ -4,39 +4,21 @@ package com.bestdreamstore.cosmetics.CONTROLLERS;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.Response;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.bestdreamstore.cosmetics.ADAPTERS.Get_Cart_Adapter;
 import com.bestdreamstore.cosmetics.ADAPTERS.Get_Marca_Adapter;
 import com.bestdreamstore.cosmetics.CategoriasMarcas;
-import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
-import com.bestdreamstore.cosmetics.Details;
-import com.bestdreamstore.cosmetics.MainActivity;
 import com.bestdreamstore.cosmetics.R;
 import com.bestdreamstore.cosmetics.Searchs;
 import com.squareup.picasso.Picasso;
 import android.widget.ImageView;
 
-import org.json.JSONObject;
-
-import java.net.URLEncoder;
-import java.text.DecimalFormat;
 import java.util.List;
 
 

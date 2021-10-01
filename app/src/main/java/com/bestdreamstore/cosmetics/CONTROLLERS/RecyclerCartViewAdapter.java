@@ -4,25 +4,21 @@ package com.bestdreamstore.cosmetics.CONTROLLERS;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.media.Image;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.bestdreamstore.cosmetics.ADAPTERS.Get_Cart_Adapter;
 import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
@@ -31,7 +27,6 @@ import com.squareup.picasso.Picasso;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
 import java.util.List;
 
 

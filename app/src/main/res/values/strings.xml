@@ -16,10 +16,16 @@
 
     <string name="facebook_app_id">698535613858321</string>
     <string name="fb_login_protocol_scheme">fb698535613858321</string>
-    <string name="server_client_id">322653182630-p44l7q9aps6gikpumn8hmsm20e3r8qjh.apps.googleusercontent.com</string>
+
+<!--
+    <string name="server_client_id">322653182630-ba56kqllh8244tse4no0dubs2i1nlmif.apps.googleusercontent.com</string>
+
+322653182630-ba56kqllh8244tse4no0dubs2i1nlmif.apps.googleusercontent.com
+vieja sha1:    FA:1E:27:6C:86:CC:9E:70:56:10:D3:E2:18:2D:11:96:7A:CC:92:40
+nueva sha1:    07:95:72:FC:94:6C:60:88:5B:AE:9C:75:3E:2F:50:DA:A8:A4:F8:33
 
 
-
+    -->
 
     <string-array name="query_suggestions">
         <item>Android</item>

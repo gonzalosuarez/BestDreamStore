@@ -8,6 +8,12 @@
     android:orientation="vertical">
 
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_inicio"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
+
+
 
     <ImageView
         android:id="@+id/logo"

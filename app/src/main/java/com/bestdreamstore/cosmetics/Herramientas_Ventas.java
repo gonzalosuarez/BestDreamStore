@@ -3,46 +3,25 @@ package com.bestdreamstore.cosmetics;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.Toolbar;
+
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.bestdreamstore.cosmetics.CONTROLLERS.Cart_Controller;
 import com.bestdreamstore.cosmetics.CONTROLLERS.PoopUp_General;
 import com.bestdreamstore.cosmetics.LIBS.HTMLTextView;
-import com.bestdreamstore.cosmetics.LIBS.Login;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.iid.InstanceIdResult;
-import com.koushikdutta.ion.Ion;
 import com.bestdreamstore.cosmetics.LIBS.DownloadImageTask;
 import com.bestdreamstore.cosmetics.LIBS.UserFunctions;
-import com.bestdreamstore.cosmetics.DATA_BASE.DatabaseHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
-
-import static android.content.ContentValues.TAG;
 
 
 public class Herramientas_Ventas extends Activity {
